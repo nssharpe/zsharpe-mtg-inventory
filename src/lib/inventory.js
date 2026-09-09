@@ -19,7 +19,7 @@ import {
 
 import { db } from './firebase.js'
 import { priceForFinish } from './pricing.js'
-import { rowFromCard, rowId } from './rows.js'
+import { repriceRow, rowFromCard, rowId } from './rows.js'
 
 const COLLECTION = 'collection'
 const META = 'meta'
@@ -57,6 +57,8 @@ export async function addCard(card, { finish, condition, quantity = 1, language 
       quantity: increment(row.quantity),
       // Refresh the price snapshot while we are here.
       priceUsd: row.priceUsd,
+      prices: row.prices,
+      finishes: row.finishes,
       priceUpdatedAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
     })
@@ -85,11 +87,13 @@ export async function updateRow(rowIdentifier, changes) {
  * move to a new document rather than be edited in place.
  */
 export async function reclassifyRow(row, { finish, condition }) {
-  const target = { ...row, finish, condition }
+  // Finish selects which price key applies, so the price has to be recomputed
+  // rather than carried across.
+  const target = { ...repriceRow(row, finish), condition }
   const newId = rowId(target)
 
   if (newId === row.id) {
-    await updateRow(row.id, { finish, condition })
+    await updateRow(row.id, { finish, condition, priceUsd: target.priceUsd })
     return newId
   }
 
@@ -146,9 +150,22 @@ export async function writeRefreshedPrices(rows, found) {
   for (const row of rows) {
     const card = found.get(row.scryfallId)
     if (!card) continue
+
     const price = priceForFinish(card.prices, row.finish)
-    if (price === row.priceUsd) continue
-    updates.push({ id: row.id, price })
+    const prices = {
+      usd: priceForFinish(card.prices, 'nonfoil'),
+      usd_foil: priceForFinish(card.prices, 'foil'),
+      usd_etched: priceForFinish(card.prices, 'etched'),
+    }
+
+    const unchanged =
+      price === row.priceUsd &&
+      prices.usd === row.prices?.usd &&
+      prices.usd_foil === row.prices?.usd_foil &&
+      prices.usd_etched === row.prices?.usd_etched
+    if (unchanged) continue
+
+    updates.push({ id: row.id, price, prices })
   }
 
   for (let i = 0; i < updates.length; i += FIRESTORE_BATCH_LIMIT) {
@@ -156,6 +173,8 @@ export async function writeRefreshedPrices(rows, found) {
     for (const u of updates.slice(i, i + FIRESTORE_BATCH_LIMIT)) {
       batch.update(doc(db, COLLECTION, u.id), {
         priceUsd: u.price,
+        // Kept in step so changing a row's finish later reprices correctly.
+        prices: u.prices,
         priceUpdatedAt: serverTimestamp(),
       })
     }

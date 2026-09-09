@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import {
   BUYLIST,
   CONDITIONS,
-  FINISHES,
   buylistCash,
   buylistCredit,
   formatUsd,
@@ -11,6 +10,7 @@ import {
   conditionMultiplier,
 } from '../lib/pricing.js'
 import { reclassifyRow, removeRow, updateRow } from '../lib/inventory.js'
+import { availableFinishes, repriceRow } from '../lib/rows.js'
 
 export default function CardDetail({ row, onClose }) {
   const [quantity, setQuantity] = useState(row.quantity)
@@ -26,8 +26,17 @@ export default function CardDetail({ row, onClose }) {
     return () => window.removeEventListener('keydown', onKey)
   }, [onClose])
 
-  // Preview reflects the pending edits, so the value updates as you change grade.
-  const preview = { ...row, quantity: Number(quantity) || 1, condition, finish }
+  // Only the finishes this printing actually comes in — offering the others
+  // would produce a row with no price at all.
+  const finishes = availableFinishes(row)
+
+  // Preview reflects the pending edits, including the price for the chosen
+  // finish, so the value updates live as you change grade or finish.
+  const preview = {
+    ...repriceRow(row, finish),
+    quantity: Number(quantity) || 1,
+    condition,
+  }
   const dirty =
     Number(quantity) !== row.quantity || condition !== row.condition || finish !== row.finish
 
@@ -122,7 +131,7 @@ export default function CardDetail({ row, onClose }) {
 
               <Field label="Finish" className="col-span-2">
                 <div className="flex gap-1.5">
-                  {FINISHES.map((f) => (
+                  {finishes.map((f) => (
                     <button
                       key={f.code}
                       type="button"
@@ -137,7 +146,7 @@ export default function CardDetail({ row, onClose }) {
             </div>
 
             <dl className="mt-5 space-y-1.5 rounded-lg bg-surface-900 p-4 text-sm">
-              <Line label="Price each" value={formatUsd(row.priceUsd)} />
+              <Line label="Price each" value={formatUsd(preview.priceUsd)} />
               <Line label="Market total" value={formatUsd(lineMarketValue(preview))} />
               <Line
                 label={`Adjusted (${condition})`}
@@ -154,9 +163,9 @@ export default function CardDetail({ row, onClose }) {
               />
             </dl>
 
-            {row.priceUsd === null && (
+            {preview.priceUsd === null && (
               <p className="mt-3 text-xs text-amber-300">
-                No TCG price for this printing in {row.finish}. It's excluded from totals.
+                No TCG price for this printing in {finish}. It's excluded from totals.
               </p>
             )}
 

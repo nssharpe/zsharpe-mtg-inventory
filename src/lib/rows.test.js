@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { rowId, rowFromCard, availableFinishes, chunk } from './rows.js'
+import { rowId, rowFromCard, availableFinishes, repriceRow, chunk } from './rows.js'
 
 const bolt = {
   id: '7673784e-db4b-43a1-8d55-1bb9fc1e284f',
@@ -167,5 +167,69 @@ describe('chunk', () => {
     expect(groups).toHaveLength(3)
     expect(groups.every((g) => g.length <= 75)).toBe(true)
     expect(groups.flat()).toHaveLength(160)
+  })
+})
+
+describe('rowFromCard price data for repricing', () => {
+  it('stores the USD prices for every finish, so a row can reprice itself', () => {
+    const row = rowFromCard(bolt, { finish: 'nonfoil', condition: 'NM', quantity: 1 })
+    expect(row.prices).toEqual({ usd: 0.72, usd_foil: 4.37, usd_etched: null })
+  })
+
+  it('stores which finishes the printing comes in', () => {
+    const row = rowFromCard(bolt, { finish: 'nonfoil', condition: 'NM', quantity: 1 })
+    expect(row.finishes).toEqual(['nonfoil', 'foil'])
+  })
+
+  it('defaults finishes to nonfoil when the card omits them', () => {
+    const row = rowFromCard({ id: 'x', name: 'X' }, { finish: 'nonfoil', condition: 'NM' })
+    expect(row.finishes).toEqual(['nonfoil'])
+  })
+})
+
+describe('repriceRow', () => {
+  const row = rowFromCard(bolt, { finish: 'nonfoil', condition: 'NM', quantity: 2 })
+
+  it('recomputes the price when the finish changes', () => {
+    // This is the bug that made a foil->nonfoil edit keep the foil price.
+    expect(row.priceUsd).toBe(0.72)
+    expect(repriceRow(row, 'foil').priceUsd).toBe(4.37)
+  })
+
+  it('recomputes back down again', () => {
+    const foil = repriceRow(row, 'foil')
+    expect(repriceRow(foil, 'nonfoil').priceUsd).toBe(0.72)
+  })
+
+  it('sets the new finish on the returned row', () => {
+    expect(repriceRow(row, 'foil').finish).toBe('foil')
+  })
+
+  it('yields a null price when the new finish is unpriced', () => {
+    expect(repriceRow(row, 'etched').priceUsd).toBeNull()
+  })
+
+  it('leaves the price alone when the row has no stored prices', () => {
+    const legacy = { finish: 'nonfoil', priceUsd: 5, quantity: 1, condition: 'NM' }
+    expect(repriceRow(legacy, 'foil').priceUsd).toBe(5)
+  })
+
+  it('does not mutate the row it was given', () => {
+    repriceRow(row, 'foil')
+    expect(row.finish).toBe('nonfoil')
+    expect(row.priceUsd).toBe(0.72)
+  })
+})
+
+describe('availableFinishes on an inventory row', () => {
+  it('reads finishes off a stored row, not just a Scryfall card', () => {
+    const row = rowFromCard(bolt, { finish: 'foil', condition: 'NM', quantity: 1 })
+    expect(availableFinishes(row).map((f) => f.code)).toEqual(['nonfoil', 'foil'])
+  })
+
+  it('always includes the row\u2019s own finish, even if finishes is missing', () => {
+    // Otherwise a foil row with no stored finishes would show only "Normal".
+    const legacy = { finish: 'etched' }
+    expect(availableFinishes(legacy).map((f) => f.code)).toContain('etched')
   })
 })

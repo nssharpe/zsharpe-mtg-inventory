@@ -152,6 +152,20 @@ time Kadyn signs in with **kadyn.z.sharpe@gmail.com** he's in automatically.
 
 ---
 
+## 8. Turn on GitHub Pages
+
+I've held off creating the public GitHub repo until the app actually works, so
+this step comes last. Once the repo exists at `nssharpe/zsharpe-mtg-inventory`:
+
+1. Go to the repo's **Settings -> Pages**.
+2. Under **Build and deployment -> Source**, choose **GitHub Actions**.
+
+Without this the deploy workflow runs green but publishes nothing. The site then
+goes live at <https://nssharpe.github.io/zsharpe-mtg-inventory/> on every push
+to `main`.
+
+---
+
 ## What to send me
 
 Just the `firebaseConfig` object from step 6. If anything above looked different from what
