@@ -8,12 +8,12 @@
  * allowlist) plus the authorized-domains list, both set in the console.
  */
 export const firebaseConfig = {
-  apiKey: 'PASTE_ME',
-  authDomain: 'PASTE_ME',
-  projectId: 'PASTE_ME',
-  storageBucket: 'PASTE_ME',
-  messagingSenderId: 'PASTE_ME',
-  appId: 'PASTE_ME',
+  apiKey: 'AIzaSyCiIYRQo0abQfpjp0iBHPhG5quOVYXFEAM',
+  authDomain: 'zsharpe-mtg-inventory.firebaseapp.com',
+  projectId: 'zsharpe-mtg-inventory',
+  storageBucket: 'zsharpe-mtg-inventory.firebasestorage.app',
+  messagingSenderId: '298260984070',
+  appId: '1:298260984070:web:08e9350b1666d759012e87',
 }
 
 /** Only these addresses can sign in. Must match the Firestore rules exactly. */
@@ -22,4 +22,4 @@ export const ALLOWED_EMAILS = [
   'kadyn.z.sharpe@gmail.com',
 ]
 
-export const isConfigured = firebaseConfig.apiKey !== 'PASTE_ME'
+export const isConfigured = !firebaseConfig.apiKey.startsWith('PASTE')
