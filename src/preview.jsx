@@ -5,11 +5,12 @@
  *
  * Run with `npm run dev` and open /preview.html
  */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import Inventory from './components/Inventory/Inventory.jsx'
 import CardDetail from './components/CardDetail.jsx'
 import AddCard from './components/AddCard/AddCard.jsx'
+import { NOTE_FADE_MS, isTransient, refreshSummary } from './lib/refreshNote.js'
 import './index.css'
 
 const CARDS = [
@@ -46,6 +47,55 @@ const ROWS = CARDS.map((c, i) => ({
   ...(REVIEW[c.name] ? { needsReview: true, ...REVIEW[c.name] } : {}),
 }))
 
+/**
+ * Mirrors App's header note so the fade can actually be exercised without
+ * signing in: a confirmation reverts to the "last updated" line, a warning
+ * stays put.
+ */
+function NoteHarness() {
+  const [note, setNote] = useState(null)
+
+  useEffect(() => {
+    if (!isTransient(note)) return undefined
+    const timer = setTimeout(() => setNote(null), NOTE_FADE_MS)
+    return () => clearTimeout(timer)
+  }, [note])
+
+  return (
+    <div className="mb-4 rounded-lg border border-surface-600 bg-surface-800 p-3">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
+          Header note
+        </span>
+        <button type="button" className="btn-secondary" data-note="ok"
+          onClick={() => setNote(refreshSummary({ changed: 12 }))}>
+          Success
+        </button>
+        <button type="button" className="btn-secondary" data-note="none"
+          onClick={() => setNote(refreshSummary({ changed: 0 }))}>
+          No change
+        </button>
+        <button type="button" className="btn-secondary" data-note="warn"
+          onClick={() => setNote(refreshSummary({ changed: 3, notFound: 2 }))}>
+          Missing printing
+        </button>
+        <button type="button" className="btn-secondary" data-note="err"
+          onClick={() => setNote(refreshSummary({ error: 'network down' }))}>
+          Failure
+        </button>
+      </div>
+      <div
+        id="note-line"
+        className={`mt-2 text-xs ${
+          note?.tone === 'error' ? 'text-amber-300' : 'text-ink-muted'
+        }`}
+      >
+        {note?.text ?? 'Prices last updated 5 minutes ago.'}
+      </div>
+    </div>
+  )
+}
+
 function Preview() {
   const [open, setOpen] = useState(null)
   const [tab, setTab] = useState('inventory')
@@ -72,6 +122,8 @@ function Preview() {
           ))}
         </div>
       </div>
+
+      <NoteHarness />
 
       {tab === 'inventory' ? (
         <Inventory rows={ROWS} onOpen={setOpen} />

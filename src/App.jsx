@@ -8,6 +8,7 @@ import {
 } from './lib/inventory.js'
 import seedRows from './data/kadyn-sheet-seed.json'
 import { fetchCardsByIds } from './lib/scryfall.js'
+import { NOTE_FADE_MS, isTransient, refreshSummary } from './lib/refreshNote.js'
 import SignIn from './components/SignIn.jsx'
 import Inventory from './components/Inventory/Inventory.jsx'
 import AddCard from './components/AddCard/AddCard.jsx'
@@ -23,6 +24,7 @@ export default function App() {
   const [openRow, setOpenRow] = useState(null)
   const [refresh, setRefresh] = useState({ busy: false, done: 0, total: 0 })
   const [lastRefresh, setLastRefresh] = useState(null)
+  // { text, tone }. 'info' fades on its own; 'error' stays until the next run.
   const [refreshNote, setRefreshNote] = useState(null)
 
   const autoRefreshed = useRef(false)
@@ -102,20 +104,24 @@ export default function App() {
         )
         const changed = await writeRefreshedPrices(rowsToPrice, found)
         setLastRefresh(new Date())
-        setRefreshNote(
-          `Updated ${changed} price${changed === 1 ? '' : 's'}.` +
-            (notFound.length
-              ? ` ${notFound.length} printing${notFound.length === 1 ? '' : 's'} not found on Scryfall — those prices were left alone.`
-              : ''),
-        )
+
+        setRefreshNote(refreshSummary({ changed, notFound: notFound.length }))
       } catch (err) {
-        setRefreshNote(`Couldn't refresh prices: ${err.message}. Showing the last known values.`)
+        setRefreshNote(refreshSummary({ error: err.message }))
       } finally {
         setRefresh({ busy: false, done: 0, total: 0 })
       }
     },
     [],
   )
+
+  // A confirmation is transient; let it fade back to the "last updated" line
+  // rather than sitting in the header for the rest of the session.
+  useEffect(() => {
+    if (!isTransient(refreshNote)) return undefined
+    const timer = setTimeout(() => setRefreshNote(null), NOTE_FADE_MS)
+    return () => clearTimeout(timer)
+  }, [refreshNote])
 
   // Refresh once on load if the last refresh is over a day old.
   useEffect(() => {
@@ -169,8 +175,13 @@ export default function App() {
         </div>
 
         {(lastRefresh || refreshNote) && (
-          <div className="mx-auto max-w-7xl px-4 pb-2 text-xs text-ink-muted">
-            {refreshNote ?? `Prices last updated ${relativeTime(toDate(lastRefresh))}.`}
+          <div
+            className={`mx-auto max-w-7xl px-4 pb-2 text-xs ${
+              refreshNote?.tone === 'error' ? 'text-amber-300' : 'text-ink-muted'
+            }`}
+          >
+            {refreshNote?.text ??
+              `Prices last updated ${relativeTime(toDate(lastRefresh))}.`}
           </div>
         )}
       </header>
