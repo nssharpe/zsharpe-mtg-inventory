@@ -162,11 +162,31 @@ ship in the client bundle of every Firebase web app by design.
 It does not expose the collection — the security rules from step 5 deny reads and
 writes to anyone outside the email allowlist, signed in or not. The one real gap
 is that the key lets anyone call this project's Firebase Auth endpoints and burn
-quota. Close it:
+quota. Closing it takes two minutes.
 
-1. Open <https://console.cloud.google.com/apis/credentials> and pick the
-   `zsharpe-mtg-inventory` project.
-2. Click the key named **Browser key (auto created by Firebase)**.
+### You don't need to create a Cloud project
+
+**Every Firebase project *is* a Google Cloud project.** Creating
+`zsharpe-mtg-inventory` in the Firebase console created the matching Cloud
+project automatically — there is nothing to set up. It just won't appear under
+**Recent** in the Cloud console's project picker, because you've never opened it
+there. (If you land in `bank-of-sharpe` or another project, that's the picker
+defaulting to whatever you used last.)
+
+### Steps
+
+1. Open this link, which pins the right project and skips the picker entirely:
+
+   <https://console.cloud.google.com/apis/credentials?project=zsharpe-mtg-inventory>
+
+   If you ever need the picker instead, click the project dropdown and use the
+   **All** tab — not **Recent** — then search `zsharpe-mtg-inventory`.
+
+2. Under **API Keys** you'll see one key, most likely named
+   **Browser key (auto created by Firebase)**. Click its name.
+   (Firebase sometimes names it *Web API Key* instead — if there's only one key,
+   that's the one.)
+
 3. Under **Application restrictions**, choose **Websites**, then **Add**:
 
    ```
@@ -180,7 +200,9 @@ quota. Close it:
    breaks Google sign-in unless Identity Toolkit API and Token Service API are
    both explicitly allowed — the website restriction above is what actually
    limits the key.
-5. **Save.** Changes can take a few minutes to take effect.
+
+5. **Save.** Changes take up to five minutes. Afterwards, load the live site and
+   sign in once to confirm nothing broke.
 
 Then dismiss the GitHub alert (repo **Security -> Secret scanning**) as
 **Won't fix**, noting it's a public-by-design Firebase web config restricted to

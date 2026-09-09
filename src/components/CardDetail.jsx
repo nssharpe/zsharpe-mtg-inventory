@@ -86,7 +86,12 @@ export default function CardDetail({ row, onClose }) {
             <img
               src={row.imageNormal}
               alt={row.name}
-              className="mx-auto w-52 shrink-0 rounded-xl"
+              /* self-start is load-bearing: as a flex item with a width but no
+                 height, this otherwise stretches to match the details column
+                 and the art comes out squashed. aspect + object-contain keep
+                 it honest regardless of what the container does. */
+              className="mx-auto aspect-[488/680] h-auto w-52 shrink-0 self-start
+                         rounded-xl object-contain"
             />
           )}
 
