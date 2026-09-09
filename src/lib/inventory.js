@@ -1,0 +1,177 @@
+/**
+ * The only module that writes Firestore.
+ *
+ * The collection is shared: both signed-in users read and write the same rows.
+ */
+
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  increment,
+  onSnapshot,
+  serverTimestamp,
+  setDoc,
+  updateDoc,
+  writeBatch,
+} from 'firebase/firestore'
+
+import { db } from './firebase.js'
+import { priceForFinish } from './pricing.js'
+import { rowFromCard, rowId } from './rows.js'
+
+const COLLECTION = 'collection'
+const META = 'meta'
+const SETTINGS = 'settings'
+
+const FIRESTORE_BATCH_LIMIT = 500
+
+/** Live subscription to the whole collection. Returns an unsubscribe function. */
+export function watchInventory(onRows, onError) {
+  return onSnapshot(
+    collection(db, COLLECTION),
+    (snapshot) => {
+      onRows(snapshot.docs.map((d) => ({ id: d.id, ...d.data() })))
+    },
+    onError,
+  )
+}
+
+/**
+ * Add copies of a printing.
+ *
+ * If a row for this exact printing + finish + condition + language already
+ * exists, its quantity goes up; otherwise the row is created. The deterministic
+ * id is what makes this safe without a read-then-write.
+ */
+export async function addCard(card, { finish, condition, quantity = 1, language = 'en', notes = '' }) {
+  const row = rowFromCard(card, { finish, condition, quantity, language, notes })
+  const id = rowId(row)
+  const ref = doc(db, COLLECTION, id)
+
+  const existing = await getDoc(ref)
+
+  if (existing.exists()) {
+    await updateDoc(ref, {
+      quantity: increment(row.quantity),
+      // Refresh the price snapshot while we are here.
+      priceUsd: row.priceUsd,
+      priceUpdatedAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    })
+    return { id, merged: true, added: row.quantity, name: row.name }
+  }
+
+  await setDoc(ref, {
+    ...row,
+    priceUpdatedAt: serverTimestamp(),
+    addedAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+  })
+  return { id, merged: false, added: row.quantity, name: row.name }
+}
+
+/** Change quantity, condition, finish or notes on an existing row. */
+export async function updateRow(rowIdentifier, changes) {
+  await updateDoc(doc(db, COLLECTION, rowIdentifier), {
+    ...changes,
+    updatedAt: serverTimestamp(),
+  })
+}
+
+/**
+ * Changing finish or condition changes the row's identity, so the row has to
+ * move to a new document rather than be edited in place.
+ */
+export async function reclassifyRow(row, { finish, condition }) {
+  const target = { ...row, finish, condition }
+  const newId = rowId(target)
+
+  if (newId === row.id) {
+    await updateRow(row.id, { finish, condition })
+    return newId
+  }
+
+  const targetRef = doc(db, COLLECTION, newId)
+  const existing = await getDoc(targetRef)
+  const batch = writeBatch(db)
+
+  if (existing.exists()) {
+    batch.update(targetRef, {
+      quantity: increment(row.quantity),
+      updatedAt: serverTimestamp(),
+    })
+  } else {
+    const { id: _drop, ...fields } = target
+    batch.set(targetRef, { ...fields, updatedAt: serverTimestamp() })
+  }
+
+  batch.delete(doc(db, COLLECTION, row.id))
+  await batch.commit()
+  return newId
+}
+
+export async function removeRow(rowIdentifier) {
+  await deleteDoc(doc(db, COLLECTION, rowIdentifier))
+}
+
+/** Undo for the "recently added" strip: take back the copies just added. */
+export async function undoAdd(rowIdentifier, quantity) {
+  const ref = doc(db, COLLECTION, rowIdentifier)
+  const snap = await getDoc(ref)
+  if (!snap.exists()) return
+
+  const current = snap.data().quantity ?? 0
+  if (current <= quantity) {
+    await deleteDoc(ref)
+  } else {
+    await updateDoc(ref, {
+      quantity: increment(-quantity),
+      updatedAt: serverTimestamp(),
+    })
+  }
+}
+
+/**
+ * Write refreshed prices back.
+ *
+ * `found` is the Map from scryfall.fetchCardsByIds. Rows whose printing was not
+ * found keep whatever price they already had — a lookup failure is not evidence
+ * that a card became worthless.
+ */
+export async function writeRefreshedPrices(rows, found) {
+  const updates = []
+
+  for (const row of rows) {
+    const card = found.get(row.scryfallId)
+    if (!card) continue
+    const price = priceForFinish(card.prices, row.finish)
+    if (price === row.priceUsd) continue
+    updates.push({ id: row.id, price })
+  }
+
+  for (let i = 0; i < updates.length; i += FIRESTORE_BATCH_LIMIT) {
+    const batch = writeBatch(db)
+    for (const u of updates.slice(i, i + FIRESTORE_BATCH_LIMIT)) {
+      batch.update(doc(db, COLLECTION, u.id), {
+        priceUsd: u.price,
+        priceUpdatedAt: serverTimestamp(),
+      })
+    }
+    await batch.commit()
+  }
+
+  await setDoc(
+    doc(db, META, SETTINGS),
+    { lastPriceRefresh: serverTimestamp() },
+    { merge: true },
+  )
+
+  return updates.length
+}
+
+export async function getLastRefresh() {
+  const snap = await getDoc(doc(db, META, SETTINGS))
+  return snap.exists() ? snap.data().lastPriceRefresh ?? null : null
+}
