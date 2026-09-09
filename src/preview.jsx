@@ -9,6 +9,7 @@ import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import Inventory from './components/Inventory/Inventory.jsx'
 import CardDetail from './components/CardDetail.jsx'
+import AddCard from './components/AddCard/AddCard.jsx'
 import './index.css'
 
 const CARDS = [
@@ -38,12 +39,37 @@ const ROWS = CARDS.map((c, i) => ({
 
 function Preview() {
   const [open, setOpen] = useState(null)
+  const [tab, setTab] = useState('inventory')
+
   return (
     <div className="mx-auto max-w-7xl p-4">
-      <p className="mb-4 rounded-lg border border-accent/40 bg-surface-800 px-3 py-2 text-xs text-ink-normal">
-        Preview harness — sample data, no Firebase. Editing and deleting are inert here.
-      </p>
-      <Inventory rows={ROWS} onOpen={setOpen} />
+      <div className="mb-4 flex items-center gap-3">
+        <p className="flex-1 rounded-lg border border-accent/40 bg-surface-800 px-3 py-2 text-xs text-ink-normal">
+          Preview harness — sample data, no Firebase. Saving is inert here; card
+          search does hit Scryfall for real.
+        </p>
+        <div className="flex gap-1 rounded-lg bg-surface-800 p-1">
+          {['inventory', 'add'].map((t) => (
+            <button
+              key={t}
+              type="button"
+              onClick={() => setTab(t)}
+              className={`rounded-md px-3 py-1.5 text-sm font-medium capitalize ${
+                tab === t ? 'bg-accent text-surface-900' : 'text-ink-muted hover:text-ink-bright'
+              }`}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {tab === 'inventory' ? (
+        <Inventory rows={ROWS} onOpen={setOpen} />
+      ) : (
+        <AddCard />
+      )}
+
       {open && <CardDetail row={open} onClose={() => setOpen(null)} />}
     </div>
   )
