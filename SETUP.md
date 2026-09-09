@@ -152,17 +152,51 @@ time Kadyn signs in with **kadyn.z.sharpe@gmail.com** he's in automatically.
 
 ---
 
+## 7b. Restrict the API key (and the GitHub alert you'll get)
+
+Pushing the config trips GitHub's secret scanner with a **"Google API Key"**
+alert. That is expected: the scanner matches the `AIza...` prefix and cannot
+tell a Firebase *web* key from a server-side Google Cloud key. Firebase web keys
+ship in the client bundle of every Firebase web app by design.
+
+It does not expose the collection — the security rules from step 5 deny reads and
+writes to anyone outside the email allowlist, signed in or not. The one real gap
+is that the key lets anyone call this project's Firebase Auth endpoints and burn
+quota. Close it:
+
+1. Open <https://console.cloud.google.com/apis/credentials> and pick the
+   `zsharpe-mtg-inventory` project.
+2. Click the key named **Browser key (auto created by Firebase)**.
+3. Under **Application restrictions**, choose **Websites**, then **Add**:
+
+   ```
+   https://nssharpe.github.io/*
+   ```
+   ```
+   http://localhost:5173/*
+   ```
+
+4. Leave **API restrictions** on **Don't restrict key**. Restricting APIs here
+   breaks Google sign-in unless Identity Toolkit API and Token Service API are
+   both explicitly allowed — the website restriction above is what actually
+   limits the key.
+5. **Save.** Changes can take a few minutes to take effect.
+
+Then dismiss the GitHub alert (repo **Security -> Secret scanning**) as
+**Won't fix**, noting it's a public-by-design Firebase web config restricted to
+the project's domains.
+
+---
+
 ## 8. Turn on GitHub Pages
 
-I've held off creating the public GitHub repo until the app actually works, so
-this step comes last. Once the repo exists at `nssharpe/zsharpe-mtg-inventory`:
+**Already done** — the repo is created and Pages is set to build from GitHub
+Actions. Recorded here in case it ever needs redoing: repo **Settings -> Pages**,
+then **Build and deployment -> Source -> GitHub Actions**. Without it the deploy
+workflow runs green and publishes nothing.
 
-1. Go to the repo's **Settings -> Pages**.
-2. Under **Build and deployment -> Source**, choose **GitHub Actions**.
-
-Without this the deploy workflow runs green but publishes nothing. The site then
-goes live at <https://nssharpe.github.io/zsharpe-mtg-inventory/> on every push
-to `main`.
+The site is live at <https://nssharpe.github.io/zsharpe-mtg-inventory/> and
+redeploys on every push to `main`.
 
 ---
 
