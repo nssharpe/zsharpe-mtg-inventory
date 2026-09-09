@@ -1,0 +1,2054 @@
+[
+ {
+  "scryfallId": "702c4781-670b-49ae-b511-90ed119841b0",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 399.9,
+  "sourceLabel": "shivan dragon"
+ },
+ {
+  "scryfallId": "f1de1d9d-99a5-4d22-a5ed-20b0ee16d627",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 2,
+  "needsReview": true,
+  "reviewPriority": 40.96,
+  "sourceLabel": "whatery grave (two one from promo pack)"
+ },
+ {
+  "scryfallId": "f42f6bd4-dc1d-4b5f-9489-2cb109a68904",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 38.67,
+  "sourceLabel": "day of the black sun"
+ },
+ {
+  "scryfallId": "0c7d8714-a0ef-4ae8-909b-60f3319c646c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 38.19,
+  "sourceLabel": "krenko, tin street kingpin"
+ },
+ {
+  "scryfallId": "ed4c1e31-caa5-4cda-adc3-57d65c800a29",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 37.78,
+  "sourceLabel": "exotic orchard"
+ },
+ {
+  "scryfallId": "952cef59-bc7a-48e0-b05a-d9bdd6e05927",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 31.46,
+  "sourceLabel": "gishath, sun's avatar"
+ },
+ {
+  "scryfallId": "64342374-ef4e-4f27-a24b-12ea1d5beb67",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 28.65,
+  "sourceLabel": "chaos warp"
+ },
+ {
+  "scryfallId": "7bb18340-5507-44da-b008-6b010daad617",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 21.51,
+  "sourceLabel": "godless shrine"
+ },
+ {
+  "scryfallId": "1ea7248c-e4b3-4776-8e6a-cba06da2d6cc",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 15.53,
+  "sourceLabel": "fire lord azula"
+ },
+ {
+  "scryfallId": "728952a5-5f50-4ee6-a1ce-38d7e97023cb",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 15.25,
+  "sourceLabel": "loxodon warhammer"
+ },
+ {
+  "scryfallId": "1f9fd623-d45d-4c8a-b7e7-4c4ad1e80816",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 11.65,
+  "sourceLabel": "airbender ascension(2025 pre release foil)"
+ },
+ {
+  "scryfallId": "e5f2648f-990d-44d7-a7bf-0db99bdc3015",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 11.61,
+  "sourceLabel": "waterbender ascension(foil)"
+ },
+ {
+  "scryfallId": "7edbde38-1653-4eb5-b196-8881375781cb",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 10.52,
+  "sourceLabel": "fleet swallower"
+ },
+ {
+  "scryfallId": "e507e356-6241-4347-bd56-e0609954f378",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 10.18,
+  "sourceLabel": "force of vigor(marvel hulk art)"
+ },
+ {
+  "scryfallId": "cecdb092-7af2-4c53-be47-f6573fcb2f7d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 9.57,
+  "sourceLabel": "ouroboroid(2025 pre release rare)"
+ },
+ {
+  "scryfallId": "b8988f95-1c0b-4886-ad3f-b9d38edb672d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 9.11,
+  "sourceLabel": "dark leo and shredder"
+ },
+ {
+  "scryfallId": "68618675-3e00-4b07-b1da-0e4be5700a1c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 8.84,
+  "sourceLabel": "hexing squelcher"
+ },
+ {
+  "scryfallId": "5873766d-9b8d-4850-bbe7-76ab6c08e138",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 8.58,
+  "sourceLabel": "captain america, super-soldier"
+ },
+ {
+  "scryfallId": "36bb77f3-8ec4-4b8a-a283-4126037f4d00",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 8.46,
+  "sourceLabel": "raffine's tower(borderless)"
+ },
+ {
+  "scryfallId": "dd3e42ee-ab13-460b-90fd-86e677abce4f",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 7.85,
+  "sourceLabel": "sunforger"
+ },
+ {
+  "scryfallId": "531da950-dc96-4050-94a8-e01b73ddd965",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 7.66,
+  "sourceLabel": "sigarda's aid"
+ },
+ {
+  "scryfallId": "077a1ad2-6317-4271-b86c-cc999776251d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 7.21,
+  "sourceLabel": "aang, swift savior"
+ },
+ {
+  "scryfallId": "884f3feb-994f-4a65-b0e1-958e2fb38af1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 7.09,
+  "sourceLabel": "pinnacle starcage"
+ },
+ {
+  "scryfallId": "2c1c0fb2-cb74-46a1-9ce4-5274feab1146",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 6.6,
+  "sourceLabel": "redirect lightning"
+ },
+ {
+  "scryfallId": "32a96916-9356-4e46-ba74-296670c6e865",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 6.22,
+  "sourceLabel": "photon living light"
+ },
+ {
+  "scryfallId": "9c1c714a-7716-42f9-8ef2-8838d3c52627",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 6.21,
+  "sourceLabel": "blackblade reforged"
+ },
+ {
+  "scryfallId": "9fe8f2a7-70cd-41e9-b87d-16dc44c21537",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 6.17,
+  "sourceLabel": "bear umbra"
+ },
+ {
+  "scryfallId": "1a22a4ee-487d-4508-a770-f3ac16864e3b",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 5.51,
+  "sourceLabel": "peer into the abyss"
+ },
+ {
+  "scryfallId": "365336b4-92ee-429d-8f18-4624cba5469d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 5.45,
+  "sourceLabel": "jaya's immolating inferno"
+ },
+ {
+  "scryfallId": "b57cbbca-5e37-45b4-8dab-c0b76c65bf81",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 5.4,
+  "sourceLabel": "firebending student(2025 pre release foil)"
+ },
+ {
+  "scryfallId": "d7f35cd9-71ac-4191-8604-1a653b56c42d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 5.29,
+  "sourceLabel": "aang, at the crossroads"
+ },
+ {
+  "scryfallId": "dae88c31-77a5-40aa-84be-d74b4545a6ee",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 5.02,
+  "sourceLabel": "sdecimate"
+ },
+ {
+  "scryfallId": "a28ab6cc-d065-495c-a76c-7996a0e4d14d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 4.77,
+  "sourceLabel": "rishkar's expertise"
+ },
+ {
+  "scryfallId": "a992fad9-1dd1-47fe-b315-a62f7875f3be",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 4.73,
+  "sourceLabel": "inexorable tide"
+ },
+ {
+  "scryfallId": "eadded94-3c18-43a9-bde9-f7ec86a98cce",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 4.47,
+  "sourceLabel": "spirit water revival(foil)"
+ },
+ {
+  "scryfallId": "5a9c1d90-b2a3-40a9-86d7-ce6930acee0e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 4.42,
+  "sourceLabel": "star winder"
+ },
+ {
+  "scryfallId": "78570121-0c1e-42ef-91a1-82fecaad004e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 4.36,
+  "sourceLabel": "avengers assemble (comic art)"
+ },
+ {
+  "scryfallId": "36f6c636-3539-494f-abf9-62ea00fcedfd",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 4.25,
+  "sourceLabel": "stormcarved coast"
+ },
+ {
+  "scryfallId": "7ba7d71c-aaa6-49e9-9ba5-1fe7f8cbc9c4",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 4.18,
+  "sourceLabel": "cinder glade"
+ },
+ {
+  "scryfallId": "30d0754a-f7bb-4c13-b7e3-28046db48cc1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.97,
+  "sourceLabel": "slayers' stronghold"
+ },
+ {
+  "scryfallId": "ea11f546-4f7c-4649-9e6e-65d0a3ef3912",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.96,
+  "sourceLabel": "dualcaster mage"
+ },
+ {
+  "scryfallId": "ddc2bf31-d10b-4a57-ad16-6448830f440c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.96,
+  "sourceLabel": "wolverine, fierce fighter"
+ },
+ {
+  "scryfallId": "ebcf9ad6-5c1c-4b12-9778-2b9338bf49aa",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.76,
+  "sourceLabel": "zuko redeemed"
+ },
+ {
+  "scryfallId": "eaba0387-dbbf-4589-949c-2acbdcd6b5bd",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.72,
+  "sourceLabel": "krang and shredder(special art foil)"
+ },
+ {
+  "scryfallId": "c79d97c0-76aa-439c-b47d-dc4b00ffda96",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.64,
+  "sourceLabel": "soul immolation(two one foil)"
+ },
+ {
+  "scryfallId": "c79d97c0-76aa-439c-b47d-dc4b00ffda96",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.64,
+  "sourceLabel": "soul immolation(two one foil)"
+ },
+ {
+  "scryfallId": "00c46d18-064e-403a-bf39-ec655d78390a",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.45,
+  "sourceLabel": "ox of agonas"
+ },
+ {
+  "scryfallId": "2b5fbcb8-9023-4a1c-b082-db44be8d8325",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.43,
+  "sourceLabel": "silkgaurd"
+ },
+ {
+  "scryfallId": "8bae4950-bf6d-4e96-91f9-26d27021b748",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 2,
+  "needsReview": true,
+  "reviewPriority": 3.4,
+  "sourceLabel": "chrome dome(two)"
+ },
+ {
+  "scryfallId": "62a3fc08-6d95-43da-8479-4289018c2d58",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.29,
+  "sourceLabel": "storm herd"
+ },
+ {
+  "scryfallId": "226a4c5d-bf49-40d8-a7a4-341c18029634",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.26,
+  "sourceLabel": "sage of the beyond"
+ },
+ {
+  "scryfallId": "5447a777-769d-4773-ab64-31c67e310e15",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 3.03,
+  "sourceLabel": "unlicensed hearse"
+ },
+ {
+  "scryfallId": "d77f5e95-1aa5-4b43-b859-b565c0447763",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.99,
+  "sourceLabel": "demon of loathing"
+ },
+ {
+  "scryfallId": "62a08de0-27d6-466b-8ba8-a1bb7719049d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.96,
+  "sourceLabel": "the endstone"
+ },
+ {
+  "scryfallId": "da1792e4-2170-42ae-a335-fde6f5ef8932",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.67,
+  "sourceLabel": "thundering falls"
+ },
+ {
+  "scryfallId": "51003a38-3493-4524-aed8-9681f5a89037",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.66,
+  "sourceLabel": "secret tunnle"
+ },
+ {
+  "scryfallId": "d5d7e7c4-7c53-4ccd-bf36-7b11133656ee",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.64,
+  "sourceLabel": "rozorverge thicket"
+ },
+ {
+  "scryfallId": "06e1cc7b-9319-4f6f-88ee-2e6b6d2efbc6",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.46,
+  "sourceLabel": "unbreakable formation"
+ },
+ {
+  "scryfallId": "7688ad33-62b2-46ab-b15b-2e20c28710de",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.44,
+  "sourceLabel": "banefire"
+ },
+ {
+  "scryfallId": "77dd1c84-0c67-41a2-aa19-ca448520ac54",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.35,
+  "sourceLabel": "elemental mastery"
+ },
+ {
+  "scryfallId": "de5279fc-2532-4e66-bc44-ca395e106ab0",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.27,
+  "sourceLabel": "mossfire valley"
+ },
+ {
+  "scryfallId": "abfc1f6e-9a93-4608-905f-f1fe7d1a9ee1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.26,
+  "sourceLabel": "terisian mindbreaker"
+ },
+ {
+  "scryfallId": "eaacd338-1040-4d61-977e-7c97d0f26724",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.26,
+  "sourceLabel": "chishiro, the shattered blade"
+ },
+ {
+  "scryfallId": "f8c9d744-8294-4747-ae7e-99be2b6e7479",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.25,
+  "sourceLabel": "forgotten acient"
+ },
+ {
+  "scryfallId": "11347d20-2b14-41cb-a930-92e37fcd1b87",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.14,
+  "sourceLabel": "shamanic revelation"
+ },
+ {
+  "scryfallId": "d41a55d9-6007-4b1c-a917-2cb5e8f64000",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.13,
+  "sourceLabel": "the vision (name foil)"
+ },
+ {
+  "scryfallId": "3964c3a5-3ce7-4b73-89ec-ed1b9799aef8",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.13,
+  "sourceLabel": "raging ravine"
+ },
+ {
+  "scryfallId": "4b1ace1f-84ec-499d-8a52-c0ad26a70d77",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.05,
+  "sourceLabel": "maralen fae ascendant"
+ },
+ {
+  "scryfallId": "6f80b450-70fe-4148-a7ce-1463c4c7b28c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 2.03,
+  "sourceLabel": "echoing deeps(special art)"
+ },
+ {
+  "scryfallId": "20882daf-a2ae-40ec-a363-8d564a2f3b2a",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.98,
+  "sourceLabel": "raph and mikey trouble makers"
+ },
+ {
+  "scryfallId": "7110cae6-b0ed-4495-9f36-751ce25c9538",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.85,
+  "sourceLabel": "ashling, rekindled(special art borderless)"
+ },
+ {
+  "scryfallId": "aeae9feb-8153-496c-bb12-8db5e2e089a9",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.85,
+  "sourceLabel": "tamiyo, collector of tales"
+ },
+ {
+  "scryfallId": "46eff31d-f460-48f2-aab7-8b9b89cd87fe",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.83,
+  "sourceLabel": "champion of lambholt"
+ },
+ {
+  "scryfallId": "b54c6054-bf05-4347-aa9c-07c6ab79e6df",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.8,
+  "sourceLabel": "cleansing nova"
+ },
+ {
+  "scryfallId": "191cbf96-5e92-4b83-aef7-d7ae65b8e555",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 2,
+  "needsReview": true,
+  "reviewPriority": 1.76,
+  "sourceLabel": "realm of koh(two)"
+ },
+ {
+  "scryfallId": "4d2e5f2b-993a-48b1-834e-a4fe18e119ae",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.65,
+  "sourceLabel": "ty lee, chi blocker"
+ },
+ {
+  "scryfallId": "94d11159-c389-4461-abf9-2a3be6b39d8d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.57,
+  "sourceLabel": "conult the star charts"
+ },
+ {
+  "scryfallId": "b9b12da4-7c5c-4dce-932d-0683bf04df7d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.5,
+  "sourceLabel": "ran and shaw"
+ },
+ {
+  "scryfallId": "9ce2aa8e-b0c4-4e22-84eb-94b9e5ca6f76",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.5,
+  "sourceLabel": "rampant rejuvenator"
+ },
+ {
+  "scryfallId": "9fe03ee0-50e4-4893-84ed-0d099be21d4e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.47,
+  "sourceLabel": "soul's majesty"
+ },
+ {
+  "scryfallId": "08e88552-fd1a-48e8-8443-73390e1f3332",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.43,
+  "sourceLabel": "deflecting palm"
+ },
+ {
+  "scryfallId": "b5734a2c-0e8f-4087-97ee-51e26cfbf62d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.4,
+  "sourceLabel": "ajani outland chaperone"
+ },
+ {
+  "scryfallId": "c4a798f3-9adf-4748-ae87-5f44762491ff",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.38,
+  "sourceLabel": "broadcast takeover"
+ },
+ {
+  "scryfallId": "2b755ebd-a194-4b78-b1e8-606a7d231598",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.33,
+  "sourceLabel": "pinnacle emissary"
+ },
+ {
+  "scryfallId": "a74e587e-d79e-48e3-8902-b02352b22975",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.3,
+  "sourceLabel": "stirring wildwood(special art)"
+ },
+ {
+  "scryfallId": "4d62258f-135b-44ca-a27d-3c2267f408a5",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.28,
+  "sourceLabel": "game trail"
+ },
+ {
+  "scryfallId": "d2ce0759-6b24-41a6-8a24-16cf44dfc162",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.24,
+  "sourceLabel": "temple of the abandon"
+ },
+ {
+  "scryfallId": "a0e4cce2-9c30-4ca9-a069-cc86d4ac57e5",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.19,
+  "sourceLabel": "darksteel juggernaut"
+ },
+ {
+  "scryfallId": "6ba62e03-d8e6-4cd9-8997-0784c01ae8c6",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.16,
+  "sourceLabel": "the sentry, golden guardian(name art)"
+ },
+ {
+  "scryfallId": "b2c86408-5e19-46ca-a3ce-949eb148acde",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.15,
+  "sourceLabel": "weapons manufacturing"
+ },
+ {
+  "scryfallId": "f1fbac4b-574e-4f30-9ee7-6054081b278c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.15,
+  "sourceLabel": "mole man, moloid master"
+ },
+ {
+  "scryfallId": "fbeda63a-ce34-4d84-8306-cb48353a52f8",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.14,
+  "sourceLabel": "foil antiquities on the loose"
+ },
+ {
+  "scryfallId": "cb23a7c0-126a-4ed9-b46d-11cfe371c381",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.13,
+  "sourceLabel": "molten-core mestro"
+ },
+ {
+  "scryfallId": "7151c183-24e4-4748-a513-0f2652fdd6ef",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.13,
+  "sourceLabel": "resonating lute"
+ },
+ {
+  "scryfallId": "53c9184f-fa56-447e-b58d-a17eb5485cd3",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.12,
+  "sourceLabel": "turtles forever(foil)"
+ },
+ {
+  "scryfallId": "ed72d052-d287-448a-bbc5-969ebb1fcb68",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.1,
+  "sourceLabel": "petrified hamlet"
+ },
+ {
+  "scryfallId": "d2468de2-fdb1-4d92-a303-30d255423ddf",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.08,
+  "sourceLabel": "doom reigns supreme"
+ },
+ {
+  "scryfallId": "0251766b-ab59-4079-aea7-9968b49f04ef",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.08,
+  "sourceLabel": "taskmaster, mercenary mimic"
+ },
+ {
+  "scryfallId": "7a89533f-1236-49bf-9a25-1b7f7789eb2a",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 1.01,
+  "sourceLabel": "great divide guide"
+ },
+ {
+  "scryfallId": "87f14fae-281c-4667-a25b-ca764d8e4fbf",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.98,
+  "sourceLabel": "gathering place"
+ },
+ {
+  "scryfallId": "539a7e8f-97a9-4aa2-957b-0cc30de797bb",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.97,
+  "sourceLabel": "loch mare"
+ },
+ {
+  "scryfallId": "8b8996a5-4d22-42d3-a706-44c258c938e9",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.94,
+  "sourceLabel": "glen elendra gaurdian"
+ },
+ {
+  "scryfallId": "e99d6fc0-dcf2-4b25-81c2-02c230a36246",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.94,
+  "sourceLabel": "sothera, the supervoid"
+ },
+ {
+  "scryfallId": "76a39187-317f-40b6-a920-18edcb0bf6ac",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.94,
+  "sourceLabel": "iroh tea master"
+ },
+ {
+  "scryfallId": "9024ae78-8a60-4856-9d26-97e3d9310542",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.93,
+  "sourceLabel": "secluded starforge"
+ },
+ {
+  "scryfallId": "cbb067b0-1bb6-467c-b361-2c9ed6bd3a22",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 2,
+  "needsReview": true,
+  "reviewPriority": 0.92,
+  "sourceLabel": "champions of the shoal(two)"
+ },
+ {
+  "scryfallId": "d46d3ef7-b81f-42f4-9c1b-fa53f11eae65",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.91,
+  "sourceLabel": "oran-rief, the vastwood"
+ },
+ {
+  "scryfallId": "0ffec5f8-c06b-485b-9cc7-76a298994066",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.81,
+  "sourceLabel": "demonic embrace"
+ },
+ {
+  "scryfallId": "55502dd7-a92b-41bc-b6b1-8e0347649faf",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.79,
+  "sourceLabel": "genesis hydra"
+ },
+ {
+  "scryfallId": "31a961a0-629d-4a45-ab30-70509f1b88ba",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.79,
+  "sourceLabel": "cathersis"
+ },
+ {
+  "scryfallId": "6f34d11e-8452-448f-be4f-838e0ace9904",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.78,
+  "sourceLabel": "chain reaction"
+ },
+ {
+  "scryfallId": "31075628-a238-4ed5-b126-16ef5c23d364",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.75,
+  "sourceLabel": "sanar, innovative first year"
+ },
+ {
+  "scryfallId": "182e6da3-a356-43f0-9ce7-6e48c4b43ff0",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.71,
+  "sourceLabel": "shling's command(special art)"
+ },
+ {
+  "scryfallId": "b9dc53c3-351e-46da-bce6-ab8c651cb4ea",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.69,
+  "sourceLabel": "sokka, tenacious tactician"
+ },
+ {
+  "scryfallId": "b74bc1ad-72b0-4ea8-a43c-040a6fe0276b",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.66,
+  "sourceLabel": "prehistoric pet"
+ },
+ {
+  "scryfallId": "f4e73660-ca67-4587-9aac-02154e984861",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.65,
+  "sourceLabel": "suki, courageous recuer"
+ },
+ {
+  "scryfallId": "6cd25a10-1e4e-4f47-8a67-221df4907b26",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.63,
+  "sourceLabel": "aang's iceberg"
+ },
+ {
+  "scryfallId": "99833a13-cc77-4fa3-ae3e-def47a30e944",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.62,
+  "sourceLabel": "lilana's mastery"
+ },
+ {
+  "scryfallId": "29c2c66e-a3d3-4993-82cc-adf8f6877204",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.6,
+  "sourceLabel": "disruptor of currents"
+ },
+ {
+  "scryfallId": "d1861bc6-93d5-4b09-a5dd-94c0a0629e5f",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.6,
+  "sourceLabel": "wildgrowth archaic"
+ },
+ {
+  "scryfallId": "c3e68d0d-c259-423e-a319-8b2397c4892c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.59,
+  "sourceLabel": "ravenous robots"
+ },
+ {
+  "scryfallId": "7c769658-0d99-4758-b8bd-4c8d03a09add",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.54,
+  "sourceLabel": "gleaming bastion"
+ },
+ {
+  "scryfallId": "42465c20-16f8-46a2-96fe-b52a9eac3df9",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.53,
+  "sourceLabel": "harmonized crescendo"
+ },
+ {
+  "scryfallId": "737f2d9a-171d-4b0d-bae3-930aa9c88e95",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.52,
+  "sourceLabel": "depopulate (2022 pre releace foil)"
+ },
+ {
+  "scryfallId": "52f92b27-6dfe-466f-b68b-f5dc6befa271",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.52,
+  "sourceLabel": "zuko conflicted"
+ },
+ {
+  "scryfallId": "2884abe5-80f4-4beb-850a-98f91ee929e3",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.5,
+  "sourceLabel": "leonardo's technique"
+ },
+ {
+  "scryfallId": "96549dcb-86e4-4d88-9aea-6ceb51b109eb",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.49,
+  "sourceLabel": "savanti romero, time's exile"
+ },
+ {
+  "scryfallId": "004fdcbe-6dc9-40ad-9467-b89b72a4a8ca",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.49,
+  "sourceLabel": "suspend aggression"
+ },
+ {
+  "scryfallId": "807ed47f-53a6-40e5-a1d2-82414299c5e1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.49,
+  "sourceLabel": "don and leo problem solvers(special art)"
+ },
+ {
+  "scryfallId": "807ed47f-53a6-40e5-a1d2-82414299c5e1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.49,
+  "sourceLabel": "don and leo problem solvers"
+ },
+ {
+  "scryfallId": "b2a2b1f5-bbc7-4af1-b1c8-21570b141cba",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.48,
+  "sourceLabel": "akki battle squad"
+ },
+ {
+  "scryfallId": "aefed846-e367-4940-842f-b504c71d0a53",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.48,
+  "sourceLabel": "trystan's command"
+ },
+ {
+  "scryfallId": "23d41fc1-5b74-4ab5-9b14-43aaf3a7d125",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.46,
+  "sourceLabel": "rimefire torque"
+ },
+ {
+  "scryfallId": "57cfa420-306d-4d2c-8e83-fa9b46f2aa27",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.46,
+  "sourceLabel": "whiptongue hydra"
+ },
+ {
+  "scryfallId": "aaf7eb99-b60d-44d7-baf5-30508cc8d6b3",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.45,
+  "sourceLabel": "the fire nation drill"
+ },
+ {
+  "scryfallId": "57c0258f-f464-4f52-b234-ba44a76d932a",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.44,
+  "sourceLabel": "bonehoard"
+ },
+ {
+  "scryfallId": "bc9b17de-ddb7-4f4c-826d-2f8e0678b680",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.43,
+  "sourceLabel": "raven eagle"
+ },
+ {
+  "scryfallId": "a2cb17e2-982e-4914-ab09-6edcf2546509",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.41,
+  "sourceLabel": "sygg's command"
+ },
+ {
+  "scryfallId": "57dcba6c-9d8e-4a66-99ac-48e737e14263",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.4,
+  "sourceLabel": "even the score"
+ },
+ {
+  "scryfallId": "5f21d1d1-9500-48c6-bf26-3bcd0c2c732e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.39,
+  "sourceLabel": "komainu battle armor"
+ },
+ {
+  "scryfallId": "6a438677-5355-4918-897e-fd2d5b693bb1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.39,
+  "sourceLabel": "zhao, the moon slayer"
+ },
+ {
+  "scryfallId": "f9092a09-78a8-421c-868b-115175f4c252",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.38,
+  "sourceLabel": "skycoach conductor"
+ },
+ {
+  "scryfallId": "ecbe8717-07a1-4145-9cd4-b98b145c2d4c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.37,
+  "sourceLabel": "wild ricochet"
+ },
+ {
+  "scryfallId": "8a500880-56c9-44ea-ad34-c3e5123106cb",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.35,
+  "sourceLabel": "origin of the avengers"
+ },
+ {
+  "scryfallId": "bf7ab51b-301e-48fe-b1e8-0c33d057e7de",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.33,
+  "sourceLabel": "kinscaer sentry"
+ },
+ {
+  "scryfallId": "7e3e28ca-bd1a-46bf-8ce0-56807cbb41c6",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.32,
+  "sourceLabel": "the seedcore"
+ },
+ {
+  "scryfallId": "50aa361c-72fd-4ecb-b877-a27646c66ad0",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.31,
+  "sourceLabel": "cloack and dagger, entwined"
+ },
+ {
+  "scryfallId": "baaabd52-3aa9-4e2f-9369-d4db8b405ba8",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.3,
+  "sourceLabel": "angel of finality"
+ },
+ {
+  "scryfallId": "76e4dd1d-b0bd-4fcf-b5c5-fe203af2fe8e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.29,
+  "sourceLabel": "day of the dragons"
+ },
+ {
+  "scryfallId": "bc102a4a-8f37-42ad-98ee-e7035d2ff71f",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.28,
+  "sourceLabel": "tanuki transplanter"
+ },
+ {
+  "scryfallId": "59a862ac-ef3b-41ff-abb7-d09879e9a7b1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.26,
+  "sourceLabel": "weftwalking"
+ },
+ {
+  "scryfallId": "dd2d9f47-2bd2-4a97-90c7-beca18a8e7fa",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.26,
+  "sourceLabel": "dissipation field"
+ },
+ {
+  "scryfallId": "d47fd63e-ddf0-4d98-8883-9ac883c20691",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.25,
+  "sourceLabel": "tiger-seal"
+ },
+ {
+  "scryfallId": "8206247e-43e6-4936-9ef5-42b174ff57c9",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.24,
+  "sourceLabel": "protean thaumaturge"
+ },
+ {
+  "scryfallId": "e81eddc2-8311-4618-849d-3717cdf83681",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.24,
+  "sourceLabel": "rishkar, peema renegade"
+ },
+ {
+  "scryfallId": "62b5ab41-7a85-49aa-8669-8a09a09d02fa",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.24,
+  "sourceLabel": "sygg, wanderwine wisdom"
+ },
+ {
+  "scryfallId": "c2584dda-a1e6-41d4-ae50-a073db428cee",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.24,
+  "sourceLabel": "sandbender scavengers"
+ },
+ {
+  "scryfallId": "3cba1ffa-9b43-41f9-a5ea-57cd48013c1c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.24,
+  "sourceLabel": "dyadrine, synthesis amalgam"
+ },
+ {
+  "scryfallId": "dae85295-9bad-4f5b-9935-7242632e9008",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.23,
+  "sourceLabel": "geology enthusiast"
+ },
+ {
+  "scryfallId": "d7f5cae6-5f1d-4537-9cc5-46d727d1beb1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.21,
+  "sourceLabel": "spearbreaker behemoth"
+ },
+ {
+  "scryfallId": "a95749cf-dd12-4bca-a74d-01301b9b76df",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.21,
+  "sourceLabel": "master warcraft"
+ },
+ {
+  "scryfallId": "6259c7ff-4725-44d1-a003-6be583300b25",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.2,
+  "sourceLabel": "magmablood archaic(paper art)"
+ },
+ {
+  "scryfallId": "8064eb67-5397-4a25-a02e-f2a0a3e839aa",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.2,
+  "sourceLabel": "bioengineered future"
+ },
+ {
+  "scryfallId": "2eecab66-d600-49d5-8b5a-f70872375d8b",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.19,
+  "sourceLabel": "ogre-head helm"
+ },
+ {
+  "scryfallId": "d8adeb65-f6f4-4d21-bca7-71fe8ef71f3b",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.19,
+  "sourceLabel": "end-blaze epiphany"
+ },
+ {
+  "scryfallId": "ae71b0a7-90c6-48cd-808c-c6c430dcba9c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.18,
+  "sourceLabel": "relic seeker"
+ },
+ {
+  "scryfallId": "c2dca493-9f1e-479a-a1d2-893d4799be3e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.18,
+  "sourceLabel": "emissary escort"
+ },
+ {
+  "scryfallId": "91eb9067-0bc7-4497-ba9c-c1ea41e5a379",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.17,
+  "sourceLabel": "curse of the swine"
+ },
+ {
+  "scryfallId": "002fe870-eae5-42cc-a44c-32906f60719e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.17,
+  "sourceLabel": "ulasht the hate seed"
+ },
+ {
+  "scryfallId": "e88d365a-99aa-4e76-833e-b08aa83476a0",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.15,
+  "sourceLabel": "park heights pegasus"
+ },
+ {
+  "scryfallId": "b1e6775a-f711-4709-a4c7-ae159023f0fd",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.14,
+  "sourceLabel": "ashnod,flesh mechanist"
+ },
+ {
+  "scryfallId": "a08c9c2e-f863-46cb-b3a4-f83291a1a03b",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.14,
+  "sourceLabel": "aven hearstabber"
+ },
+ {
+  "scryfallId": "6cddd86f-2eaa-41ad-8f97-bd18bfa2f766",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.14,
+  "sourceLabel": "ill-timed explosion"
+ },
+ {
+  "scryfallId": "f2d563b1-f03b-4ce3-9de0-05dab257b67c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.13,
+  "sourceLabel": "the last ride"
+ },
+ {
+  "scryfallId": "2ffdf0cc-aa53-4ec0-bed5-e3a04bbabdc6",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.13,
+  "sourceLabel": "comforting counsel"
+ },
+ {
+  "scryfallId": "36918a64-e13c-4a95-8068-eb2517572c66",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.13,
+  "sourceLabel": "worlds within worlds"
+ },
+ {
+  "scryfallId": "271ee6c8-164b-4d6a-a7c0-3aa8dea10b7d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.13,
+  "sourceLabel": "vision quest"
+ },
+ {
+  "scryfallId": "99d03f11-7448-47de-9fb4-3ceaf08dc1d4",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.12,
+  "sourceLabel": "argent sphinx"
+ },
+ {
+  "scryfallId": "a102db09-fae9-4714-951c-bbdf9d4658d7",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.12,
+  "sourceLabel": "tenacious underdog(borderless art)"
+ },
+ {
+  "scryfallId": "c453026f-8a63-46f5-8b7a-720e0ec95858",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.12,
+  "sourceLabel": "concord with kami"
+ },
+ {
+  "scryfallId": "4d623951-3896-494d-bcc5-6caf3cc74bc6",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.12,
+  "sourceLabel": "strata scythe"
+ },
+ {
+  "scryfallId": "3d32fd3a-ce7f-42b2-84ca-4f25f096ade0",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.12,
+  "sourceLabel": "alien invasion"
+ },
+ {
+  "scryfallId": "02f2fcaf-97d6-441a-bdde-fb105ffad1c5",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.12,
+  "sourceLabel": "niv-mizzet guildpact"
+ },
+ {
+  "scryfallId": "f791b7fa-3d12-409d-b017-cb9fd8b71af7",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.12,
+  "sourceLabel": "simic sky swallower"
+ },
+ {
+  "scryfallId": "dc19002c-e87d-45a1-84f2-f953587ddfd1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.11,
+  "sourceLabel": "synthetic destiny"
+ },
+ {
+  "scryfallId": "97728b94-7807-45d8-9048-996ece5447e1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.11,
+  "sourceLabel": "secret invasion(two and one is foil)"
+ },
+ {
+  "scryfallId": "97728b94-7807-45d8-9048-996ece5447e1",
+  "finish": "foil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.11,
+  "sourceLabel": "secret invasion(two and one is foil)"
+ },
+ {
+  "scryfallId": "84784231-2675-4b5b-929f-a796c091a77c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.1,
+  "sourceLabel": "serra's gaurdian"
+ },
+ {
+  "scryfallId": "49f6a537-fa85-44ab-a853-7a32812a4b32",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.1,
+  "sourceLabel": "relic robber"
+ },
+ {
+  "scryfallId": "ba946cfb-a729-406b-be35-0defaf95283e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.09,
+  "sourceLabel": "arcane artisan"
+ },
+ {
+  "scryfallId": "92fcf155-41ae-4275-8791-27ee95a2f7c0",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.09,
+  "sourceLabel": "jadzi steward of fate"
+ },
+ {
+  "scryfallId": "49db5812-49f7-452a-8f1d-88e6fb4880f3",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.09,
+  "sourceLabel": "kosei, penitent warlord"
+ },
+ {
+  "scryfallId": "21522dff-8a65-4816-8b6e-b71270fda3cd",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.07,
+  "sourceLabel": "inspired sphinx"
+ },
+ {
+  "scryfallId": "6b4cf1fb-9a56-4d75-a42e-5a92bcfe5b08",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.07,
+  "sourceLabel": "memorial vault"
+ },
+ {
+  "scryfallId": "5c06fb09-1e64-49c7-9938-541c0433bf5a",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.07,
+  "sourceLabel": "goblin razerunner"
+ },
+ {
+  "scryfallId": "42141284-32b3-4195-b696-801232fe6799",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.07,
+  "sourceLabel": "moon girl and devil dinosaur"
+ },
+ {
+  "scryfallId": "0c6db849-8217-4657-95cf-210b31af89ed",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 2,
+  "needsReview": true,
+  "reviewPriority": 0.06,
+  "sourceLabel": "gravewalker(two)"
+ },
+ {
+  "scryfallId": "8acaae58-93b5-4544-84cc-98e134edb738",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.06,
+  "sourceLabel": "tolsimir, midnight's light"
+ },
+ {
+  "scryfallId": "63167d77-a8d5-468f-9132-a5000c57901a",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.06,
+  "sourceLabel": "incandescent aria"
+ },
+ {
+  "scryfallId": "03e5b027-7cd5-4343-b029-f4d197e1f1da",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.05,
+  "sourceLabel": "covereted falcon"
+ },
+ {
+  "scryfallId": "16fcc1a2-f8e0-4126-81ef-4481985cf0bf",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.03,
+  "sourceLabel": "one with kami"
+ },
+ {
+  "scryfallId": "4996c35b-892a-4e9e-8337-cc656d8cecf8",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.02,
+  "sourceLabel": "kitsune's technique"
+ },
+ {
+  "scryfallId": "98342ed6-46ac-4242-a00d-1543429b232d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.02,
+  "sourceLabel": "ascendant acolyte"
+ },
+ {
+  "scryfallId": "53498863-2e69-4b98-b0f0-7ae13dc1033e",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.02,
+  "sourceLabel": "grindclock"
+ },
+ {
+  "scryfallId": "c4deb32e-6890-4f93-a580-cf1758ffcd20",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.02,
+  "sourceLabel": "maima, the fractured calm"
+ },
+ {
+  "scryfallId": "3f969b1f-5f39-4777-b41f-5f7604595672",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.01,
+  "sourceLabel": "kami of celebration"
+ },
+ {
+  "scryfallId": "cbcade55-8ae3-4ac0-b2a9-f890b83ed530",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.01,
+  "sourceLabel": "smoke spirits' aid"
+ },
+ {
+  "scryfallId": "7ea73973-a77e-4048-ac9e-f40e8d143067",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0.01,
+  "sourceLabel": "collision of realms"
+ },
+ {
+  "scryfallId": "d38ad178-35a5-44ad-b80a-d746f3e6a45c",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "ajani's influence"
+ },
+ {
+  "scryfallId": "933c4a54-5c3a-496b-aa35-edf791155d8d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "cosmic intervention"
+ },
+ {
+  "scryfallId": "4cbcb622-1aff-460f-b8fa-4502d991e0ad",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "leaders talent"
+ },
+ {
+  "scryfallId": "1c9e7fdc-676f-4901-83ff-bfea3a96d937",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "surtland elementalist"
+ },
+ {
+  "scryfallId": "c286a74c-3714-4190-8322-84b161debe39",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "tale of the ancestors"
+ },
+ {
+  "scryfallId": "e7344ffb-aada-4be1-bc82-2ed96e6cb5bf",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "grasping current"
+ },
+ {
+  "scryfallId": "484e80a4-1d5f-4c27-98a8-ee2ef9d6cbdc",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "the wondrous wasp"
+ },
+ {
+  "scryfallId": "7238c46e-6338-4aca-96f2-934c44c8cc36",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "spectral deluge"
+ },
+ {
+  "scryfallId": "ea166114-2f9b-4ca6-b573-1f49f7485580",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0,
+  "sourceLabel": "awaken the erstwhile"
+ },
+ {
+  "scryfallId": "4dc5f62c-2d29-4a94-8501-13dc6a93c5a1",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0,
+  "sourceLabel": "graveyard marshal"
+ },
+ {
+  "scryfallId": "e960fb5a-70cc-490d-99cf-99bc65485cfb",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "liliana's spoils"
+ },
+ {
+  "scryfallId": "146c0cab-5f6b-425d-9f50-33d8da266235",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0,
+  "sourceLabel": "burning sun's avatar"
+ },
+ {
+  "scryfallId": "ba2b0966-4e9e-44dc-9145-3c1e644578bc",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0,
+  "sourceLabel": "prodigious growth"
+ },
+ {
+  "scryfallId": "079a6b44-3492-4484-aed1-5cd2449e702d",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "ezuri's brigade"
+ },
+ {
+  "scryfallId": "d27b6f2a-84df-4097-a66a-8e463db47f58",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "party dude"
+ },
+ {
+  "scryfallId": "fa1fe29f-cf84-45d3-b8fe-e4de1d2bebbf",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "decimator web"
+ },
+ {
+  "scryfallId": "1c8c41dd-8551-4ce8-a9be-9b9f65718852",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "ranar the everwatchful"
+ },
+ {
+  "scryfallId": "552912bf-4085-49ad-902f-5c41540df97a",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "lethereal valkyrie"
+ },
+ {
+  "scryfallId": "7c5ada8c-98f2-4f9c-bcb5-dfa4f804fbe6",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": false,
+  "reviewPriority": 0,
+  "sourceLabel": "wyleth soul of steel"
+ },
+ {
+  "scryfallId": "639df7bc-b87d-4bf5-8005-8eabc54e955b",
+  "finish": "nonfoil",
+  "condition": "NM",
+  "quantity": 1,
+  "needsReview": true,
+  "reviewPriority": 0,
+  "sourceLabel": "otrimi, the ever-playful"
+ }
+]

@@ -23,9 +23,17 @@ const CARDS = [
   { scryfallId: 'f29ba16f-c8fb-42fe-aabf-87089cb214a7', name: 'Lightning Bolt', setCode: '2x2', setName: 'Double Masters 2022', collectorNumber: '117', colorIdentity: ['R'], typeLine: 'Instant', rarity: 'uncommon', cmc: 1, img: 'f/2/f29ba16f-c8fb-42fe-aabf-87089cb214a7.jpg?1783921885', finish: 'nonfoil', condition: 'LP', quantity: 4, priceUsd: 2.44 , finishes: ['nonfoil', 'foil'], prices: { usd: 2.44, usd_foil: 2.60, usd_etched: null } },
   { scryfallId: '4cbc6901-6a4a-4d0a-83ea-7eefa3b35021', name: 'Sol Ring', setCode: 'c21', setName: 'Commander 2021', collectorNumber: '263', colorIdentity: [], typeLine: 'Artifact', rarity: 'uncommon', cmc: 1, img: '4/c/4cbc6901-6a4a-4d0a-83ea-7eefa3b35021.jpg?1783927506', finish: 'nonfoil', condition: 'NM', quantity: 2, priceUsd: 1.89 , finishes: ['nonfoil'], prices: { usd: 1.89, usd_foil: null, usd_etched: null } },
   { scryfallId: '581b7327-3215-4a4f-b4ae-d9d4002ba882', name: 'Llanowar Elves', setCode: 'dom', setName: 'Dominaria', collectorNumber: '168', colorIdentity: ['G'], typeLine: 'Creature — Elf Druid', rarity: 'common', cmc: 1, img: '5/8/581b7327-3215-4a4f-b4ae-d9d4002ba882.jpg?1783934977', finish: 'nonfoil', condition: 'DMG', quantity: 8, priceUsd: 0.33 , finishes: ['nonfoil', 'foil'], prices: { usd: 0.33, usd_foil: 3.91, usd_etched: null } },
+  { scryfallId: '294ca89d-549a-4302-9284-df5b4e833a69', name: 'Shivan Dragon', setCode: 'fdn', setName: 'Foundations', collectorNumber: '243', colorIdentity: ['R'], typeLine: 'Creature — Dragon', rarity: 'rare', cmc: 6, img: '', finish: 'nonfoil', condition: 'NM', quantity: 1, priceUsd: 0.15, finishes: ['nonfoil', 'foil'], prices: { usd: 0.15, usd_foil: 0.4, usd_etched: null } },
   // An unpriced row, to check it renders as an em dash and stays out of totals.
   { scryfallId: 'unpriced-demo', name: 'Unpriced Printing', setCode: 'vma', setName: 'Vintage Masters', collectorNumber: '4', colorIdentity: ['W', 'U'], typeLine: 'Enchantment', rarity: 'rare', cmc: 3, img: '', finish: 'nonfoil', condition: 'NM', quantity: 2, priceUsd: null , finishes: ['nonfoil'], prices: { usd: null, usd_foil: null, usd_etched: null } },
 ]
+
+// Mimic rows that came in from Kadyn's sheet: printing is a guess.
+const REVIEW = {
+  'Shivan Dragon': { reviewPriority: 399.9, sourceLabel: 'shivan dragon' },
+  'Cyclonic Rift': { reviewPriority: 15.98, sourceLabel: 'cyclonic rift' },
+  'Sol Ring': { reviewPriority: 2.4, sourceLabel: 'sol ring' },
+}
 
 const ROWS = CARDS.map((c, i) => ({
   ...c,
@@ -35,6 +43,7 @@ const ROWS = CARDS.map((c, i) => ({
   imageSmall: c.img ? `https://cards.scryfall.io/small/front/${c.img}` : '',
   imageNormal: c.img ? `https://cards.scryfall.io/normal/front/${c.img}` : '',
   addedAt: Date.now() - i * 86400000,
+  ...(REVIEW[c.name] ? { needsReview: true, ...REVIEW[c.name] } : {}),
 }))
 
 function Preview() {

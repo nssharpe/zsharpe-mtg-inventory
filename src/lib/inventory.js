@@ -20,6 +20,7 @@ import {
 import { db } from './firebase.js'
 import { priceForFinish } from './pricing.js'
 import { repriceRow, rowFromCard, rowId } from './rows.js'
+import { fetchCardsByIds } from './scryfall.js'
 
 const COLLECTION = 'collection'
 const META = 'meta'
@@ -188,6 +189,130 @@ export async function writeRefreshedPrices(rows, found) {
   )
 
   return updates.length
+}
+
+/**
+ * Replace a row's printing once someone confirms which one they actually hold.
+ *
+ * Almost everything denormalized onto a row is printing-specific — set, art,
+ * collector number, rarity, and every price. So this rebuilds the row from the
+ * new card through rowFromCard rather than patching scryfallId, which would
+ * leave the old set's art and price under the new printing's id.
+ *
+ * The row's identity changes, so it moves to a new document. addedAt carries
+ * across; a row that already exists at the target absorbs the quantity.
+ */
+export async function confirmPrinting(row, card, { finish, condition } = {}) {
+  const rebuilt = rowFromCard(card, {
+    finish: finish ?? row.finish,
+    condition: condition ?? row.condition,
+    quantity: row.quantity,
+    language: row.language ?? 'en',
+    notes: row.notes ?? '',
+  })
+
+  const newId = rowId(rebuilt)
+  const targetRef = doc(db, COLLECTION, newId)
+  const existing = await getDoc(targetRef)
+  const batch = writeBatch(db)
+
+  if (existing.exists() && newId !== row.id) {
+    batch.update(targetRef, {
+      quantity: increment(row.quantity),
+      needsReview: false,
+      updatedAt: serverTimestamp(),
+    })
+  } else {
+    batch.set(targetRef, {
+      ...rebuilt,
+      // The printing is settled now, so it drops out of the review queue.
+      needsReview: false,
+      reviewPriority: 0,
+      sourceLabel: row.sourceLabel ?? '',
+      addedAt: row.addedAt ?? serverTimestamp(),
+      priceUpdatedAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    })
+  }
+
+  if (newId !== row.id) batch.delete(doc(db, COLLECTION, row.id))
+  await batch.commit()
+  return newId
+}
+
+/** Accept the guessed printing as-is. */
+export async function acceptPrinting(rowIdentifier) {
+  await updateDoc(doc(db, COLLECTION, rowIdentifier), {
+    needsReview: false,
+    reviewPriority: 0,
+    updatedAt: serverTimestamp(),
+  })
+}
+
+/**
+ * One-time import of Kadyn's spreadsheet.
+ *
+ * The seed carries ids only. Cards are fetched here so prices are current at
+ * import time, and rows are built with rowFromCard so the import uses the exact
+ * same code path as the add flow.
+ *
+ * Written with set() rather than addCard(), so re-running is a no-op instead of
+ * doubling every quantity.
+ */
+export async function importSeed(seed, onProgress) {
+  const ids = [...new Set(seed.map((s) => s.scryfallId))]
+  const { found, notFound } = await fetchCardsByIds(ids, (p) =>
+    onProgress?.({ phase: 'fetching', ...p }),
+  )
+
+  const rows = []
+  const missing = []
+
+  for (const entry of seed) {
+    const card = found.get(entry.scryfallId)
+    if (!card) {
+      missing.push(entry.sourceLabel || entry.scryfallId)
+      continue
+    }
+    const row = rowFromCard(card, {
+      finish: entry.finish,
+      condition: entry.condition,
+      quantity: entry.quantity,
+    })
+    rows.push({
+      id: rowId(row),
+      data: {
+        ...row,
+        needsReview: entry.needsReview === true,
+        reviewPriority: entry.reviewPriority ?? 0,
+        sourceLabel: entry.sourceLabel ?? '',
+      },
+    })
+  }
+
+  let written = 0
+  for (let i = 0; i < rows.length; i += FIRESTORE_BATCH_LIMIT) {
+    const batch = writeBatch(db)
+    for (const r of rows.slice(i, i + FIRESTORE_BATCH_LIMIT)) {
+      batch.set(doc(db, COLLECTION, r.id), {
+        ...r.data,
+        priceUpdatedAt: serverTimestamp(),
+        addedAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      })
+    }
+    await batch.commit()
+    written += Math.min(FIRESTORE_BATCH_LIMIT, rows.length - i)
+    onProgress?.({ phase: 'writing', done: written, total: rows.length })
+  }
+
+  await setDoc(
+    doc(db, META, SETTINGS),
+    { lastPriceRefresh: serverTimestamp() },
+    { merge: true },
+  )
+
+  return { written, missing, notFound }
 }
 
 export async function getLastRefresh() {

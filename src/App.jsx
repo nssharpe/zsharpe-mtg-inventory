@@ -2,9 +2,11 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { isConfigured, signOut, watchAuth } from './lib/firebase.js'
 import {
   getLastRefresh,
+  importSeed,
   watchInventory,
   writeRefreshedPrices,
 } from './lib/inventory.js'
+import seedRows from './data/kadyn-sheet-seed.json'
 import { fetchCardsByIds } from './lib/scryfall.js'
 import SignIn from './components/SignIn.jsx'
 import Inventory from './components/Inventory/Inventory.jsx'
@@ -24,6 +26,45 @@ export default function App() {
   const [refreshNote, setRefreshNote] = useState(null)
 
   const autoRefreshed = useRef(false)
+  const [importState, setImportState] = useState({ busy: false, note: null, phase: '' })
+
+  // The sheet import is a one-time job; hide the offer once its rows are here.
+  const alreadyImported = rows.some((r) => r.sourceLabel)
+
+  async function runImport() {
+    const ok = window.confirm(
+      [
+        `Import ${seedRows.length} cards from Kadyn's spreadsheet?`,
+        "The set is a guess for most of them - they'll be flagged for review, " +
+          'sorted by how much the guess could be wrong.',
+        'Running this twice is safe; it overwrites rather than duplicating.',
+      ].join('\n\n'),
+    )
+    if (!ok) return
+
+    setImportState({ busy: true, note: null, phase: 'starting' })
+    try {
+      const { written, missing, notFound } = await importSeed(seedRows, (p) =>
+        setImportState({
+          busy: true,
+          note: null,
+          phase: p.phase === 'fetching'
+            ? `Looking up cards ${p.done}/${p.total}`
+            : `Saving ${p.done}/${p.total}`,
+        }),
+      )
+      const problems = [...missing, ...notFound]
+      setImportState({
+        busy: false,
+        phase: '',
+        note:
+          `Imported ${written} cards.` +
+          (problems.length ? ` ${problems.length} couldn't be looked up.` : ''),
+      })
+    } catch (err) {
+      setImportState({ busy: false, phase: '', note: `Import failed: ${err.message}` })
+    }
+  }
 
   useEffect(() => {
     if (!isConfigured) return undefined
@@ -140,6 +181,37 @@ export default function App() {
                                       px-3 py-2 text-sm text-red-200">
             {loadError}
           </p>
+        )}
+
+        {tab === 'inventory' && !alreadyImported && (
+          <section className="mb-5 rounded-xl border border-surface-600 bg-surface-800 p-4">
+            <h2 className="text-sm font-semibold text-ink-bright">
+              Import Kadyn's spreadsheet
+            </h2>
+            <p className="mt-1 text-sm text-ink-normal">
+              {seedRows.length} cards from the Google Sheet, matched against Scryfall.
+              The sheet only had names, so the printing is a best guess (most recent)
+              for most of them — every guessed row gets flagged for review, ordered by
+              how many dollars ride on the answer.
+            </p>
+            <p className="mt-2 text-xs text-ink-muted">
+              Worth adding one card by hand first to check writing works. Re-running
+              this is safe — it overwrites rather than duplicating.
+            </p>
+            <div className="mt-3 flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                onClick={runImport}
+                disabled={importState.busy}
+                className="btn-primary"
+              >
+                {importState.busy ? importState.phase || 'Importing…' : 'Import the sheet'}
+              </button>
+              {importState.note && (
+                <span className="text-sm text-ink-normal">{importState.note}</span>
+              )}
+            </div>
+          </section>
         )}
 
         {tab === 'inventory' ? (

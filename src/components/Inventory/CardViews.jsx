@@ -52,6 +52,12 @@ export function CardGrid({ rows, onOpen }) {
                     ×{row.quantity}
                   </span>
                 )}
+                {row.needsReview && (
+                  <span className="absolute bottom-1.5 left-1.5 rounded bg-surface-900/90
+                                   px-1.5 py-0.5 text-[10px] font-bold uppercase text-accent">
+                    check set
+                  </span>
+                )}
                 {row.finish !== 'nonfoil' && (
                   <span className="absolute left-1.5 top-1.5 rounded bg-accent px-1.5
                                    py-0.5 text-[10px] font-bold uppercase text-surface-900">
@@ -124,6 +130,12 @@ export function CardTable({ rows, onOpen }) {
                 <div className="flex items-center gap-2">
                   <span className="font-medium text-ink-bright">{row.name}</span>
                   <RarityBadge rarity={row.rarity} />
+                  {row.needsReview && (
+                    <span className="rounded bg-surface-600 px-1.5 py-0.5 text-[10px]
+                                     font-bold uppercase text-accent">
+                      check set
+                    </span>
+                  )}
                 </div>
                 <span className="text-xs text-ink-muted">{row.typeLine}</span>
               </td>

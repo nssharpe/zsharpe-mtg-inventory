@@ -7,6 +7,7 @@ import {
   sortRows,
   facetsFor,
   primaryTypeOf,
+  countNeedingReview,
 } from './filters.js'
 
 const rows = [
@@ -228,5 +229,46 @@ describe('facetsFor', () => {
     const f = facetsFor([])
     expect(f.sets).toEqual([])
     expect(f.types).toEqual([])
+  })
+})
+
+describe('needs-review filtering and ordering', () => {
+  const mixed = [
+    { id: 'a', name: 'Shivan Dragon', typeLine: 'Creature', colorIdentity: ['R'], rarity: 'rare', cmc: 6, finish: 'nonfoil', condition: 'NM', quantity: 1, priceUsd: 0.1, needsReview: true, reviewPriority: 399.9 },
+    { id: 'b', name: 'Chaos Warp', typeLine: 'Instant', colorIdentity: ['R'], rarity: 'rare', cmc: 3, finish: 'nonfoil', condition: 'NM', quantity: 1, priceUsd: 0.32, needsReview: true, reviewPriority: 28.65 },
+    { id: 'c', name: 'Confirmed Card', typeLine: 'Instant', colorIdentity: ['U'], rarity: 'rare', cmc: 2, finish: 'nonfoil', condition: 'NM', quantity: 1, priceUsd: 5, needsReview: false, reviewPriority: 0 },
+    // A row added through the normal flow never gets the field at all.
+    { id: 'd', name: 'Normally Added', typeLine: 'Instant', colorIdentity: ['G'], rarity: 'rare', cmc: 1, finish: 'nonfoil', condition: 'NM', quantity: 1, priceUsd: 2 },
+  ]
+
+  it('finds only the rows still awaiting a printing', () => {
+    const out = applyFilters(mixed, { ...EMPTY_FILTERS, needsReview: true })
+    expect(out.map((r) => r.id)).toEqual(['a', 'b'])
+  })
+
+  it('treats a missing needsReview as not needing review', () => {
+    // Rows added normally must not be swept into the review queue.
+    const out = applyFilters(mixed, { ...EMPTY_FILTERS, needsReview: true })
+    expect(out.map((r) => r.id)).not.toContain('d')
+  })
+
+  it('leaves every row alone when the filter is off', () => {
+    expect(applyFilters(mixed, EMPTY_FILTERS)).toHaveLength(4)
+  })
+
+  it('orders the review queue by dollars at stake, not alphabetically', () => {
+    // Shivan Dragon ($399 spread) has to come before Chaos Warp ($28).
+    const out = sortRows(mixed, 'review-desc')
+    expect(out.map((r) => r.id).slice(0, 2)).toEqual(['a', 'b'])
+  })
+
+  it('sorts rows with no reviewPriority last', () => {
+    expect(sortRows(mixed, 'review-desc').at(-1).reviewPriority ?? 0).toBe(0)
+  })
+
+  it('counts what is left to review', () => {
+    expect(countNeedingReview(mixed)).toBe(2)
+    expect(countNeedingReview([])).toBe(0)
+    expect(countNeedingReview(null)).toBe(0)
   })
 })

@@ -11,6 +11,7 @@ import {
 } from '../lib/pricing.js'
 import { reclassifyRow, removeRow, updateRow } from '../lib/inventory.js'
 import { availableFinishes, repriceRow } from '../lib/rows.js'
+import ReviewPrinting from './ReviewPrinting.jsx'
 
 export default function CardDetail({ row, onClose }) {
   const [quantity, setQuantity] = useState(row.quantity)
@@ -144,6 +145,12 @@ export default function CardDetail({ row, onClose }) {
                 </div>
               </Field>
             </div>
+
+            {row.needsReview && (
+              <div className="mt-5">
+                <ReviewPrinting row={row} onDone={onClose} />
+              </div>
+            )}
 
             <dl className="mt-5 space-y-1.5 rounded-lg bg-surface-900 p-4 text-sm">
               <Line label="Price each" value={formatUsd(preview.priceUsd)} />

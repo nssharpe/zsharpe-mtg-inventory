@@ -1,5 +1,11 @@
 import { useMemo, useState } from 'react'
-import { EMPTY_FILTERS, applyFilters, facetsFor, sortRows } from '../../lib/filters.js'
+import {
+  EMPTY_FILTERS,
+  applyFilters,
+  countNeedingReview,
+  facetsFor,
+  sortRows,
+} from '../../lib/filters.js'
 import { collectionTotals } from '../../lib/pricing.js'
 import TotalsHeader from './TotalsHeader.jsx'
 import Filters from './Filters.jsx'
@@ -11,6 +17,13 @@ export default function Inventory({ rows, onOpen }) {
   const [view, setView] = useState('grid')
 
   const facets = useMemo(() => facetsFor(rows), [rows])
+  const toReview = useMemo(() => countNeedingReview(rows), [rows])
+
+  function startReview() {
+    setFilters({ ...EMPTY_FILTERS, needsReview: true })
+    setSort('review-desc')
+    setView('grid')
+  }
   const visible = useMemo(
     () => sortRows(applyFilters(rows, filters), sort),
     [rows, filters, sort],
@@ -32,6 +45,22 @@ export default function Inventory({ rows, onOpen }) {
 
   return (
     <div className="space-y-5">
+      {toReview > 0 && (
+        <div className="flex flex-wrap items-center gap-3 rounded-xl border
+                        border-accent/50 bg-surface-800 p-4">
+          <p className="flex-1 text-sm text-ink-normal">
+            <span className="font-semibold text-ink-bright">
+              {toReview} card{toReview === 1 ? '' : 's'} still need the printing confirmed.
+            </span>{' '}
+            These came in from the spreadsheet, which only had names — the set is a
+            guess, so the totals below are approximate until they're checked.
+          </p>
+          <button type="button" onClick={startReview} className="btn-primary">
+            Review by value
+          </button>
+        </div>
+      )}
+
       <TotalsHeader totals={totals} filtered={isFiltered} />
 
       <Filters

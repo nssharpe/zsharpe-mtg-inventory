@@ -39,6 +39,8 @@ const TYPE_PRIORITY = [
 
 export const EMPTY_FILTERS = {
   search: '',
+  // Only rows still awaiting a printing confirmation (from the sheet import).
+  needsReview: false,
   colors: [],
   types: [],
   rarities: [],
@@ -58,6 +60,7 @@ export const SORTS = [
   { key: 'set-asc', label: 'Set' },
   { key: 'added-desc', label: 'Recently added' },
   { key: 'qty-desc', label: 'Quantity (most first)' },
+  { key: 'review-desc', label: 'Most worth reviewing' },
 ]
 
 const DEFAULT_SORT = 'value-desc'
@@ -98,7 +101,17 @@ export function matchesFilters(row, filters) {
   if (!matchesAny(f.finishes, row.finish)) return false
   if (!matchesAny(f.conditions, row.condition)) return false
 
+  // Rows added through the normal flow have no needsReview field at all, and
+  // must not be swept into the review queue.
+  if (f.needsReview && row.needsReview !== true) return false
+
   return true
+}
+
+/** How many rows still need their printing confirmed. */
+export function countNeedingReview(rows) {
+  if (!Array.isArray(rows)) return 0
+  return rows.filter((r) => r.needsReview === true).length
 }
 
 export function applyFilters(rows, filters) {
@@ -132,6 +145,9 @@ const COMPARATORS = {
     (a.collectorNumber ?? '').localeCompare(b.collectorNumber ?? '', undefined, { numeric: true }),
   'added-desc': (a, b) => toMillis(b.addedAt) - toMillis(a.addedAt),
   'qty-desc': (a, b) => (b.quantity ?? 0) - (a.quantity ?? 0),
+  // Dollars at stake if the guessed printing is wrong, biggest first, so the
+  // cards that actually move the total get reviewed before the bulk.
+  'review-desc': (a, b) => (b.reviewPriority ?? 0) - (a.reviewPriority ?? 0),
 }
 
 /** Firestore Timestamps, Dates and plain numbers all show up here. */
