@@ -187,14 +187,34 @@ defaulting to whatever you used last.)
    (Firebase sometimes names it *Web API Key* instead — if there's only one key,
    that's the one.)
 
-3. Under **Application restrictions**, choose **Websites**, then **Add**:
+3. Under **Application restrictions**, choose **Websites**, then **Add** all
+   four of these:
 
    ```
    https://nssharpe.github.io/*
    ```
    ```
+   https://zsharpe-mtg-inventory.firebaseapp.com/*
+   ```
+   ```
+   https://zsharpe-mtg-inventory.web.app/*
+   ```
+   ```
    http://localhost:5173/*
    ```
+
+   > **The two Firebase domains are not optional.** Nobody ever visits them, so
+   > they look safe to leave out — but Google's sign-in popup runs at
+   > `zsharpe-mtg-inventory.firebaseapp.com/__/auth/handler`, and that page calls
+   > the Identity Toolkit API with this same key. Omit them and the popup dies
+   > with **"The requested action is invalid."**
+   >
+   > It fails in a way that's easy to misread: anyone already signed in keeps
+   > working from their stored session, so it looks fine for you while nobody
+   > new can get in.
+
+   After saving, run `npm run check:auth` to confirm every origin the sign-in
+   flow needs is actually allowed.
 
 4. Leave **API restrictions** on **Don't restrict key**. Restricting APIs here
    breaks Google sign-in unless Identity Toolkit API and Token Service API are

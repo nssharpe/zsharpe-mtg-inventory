@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "check:auth": "node scripts/check-auth-config.mjs"
   },
   "dependencies": {
     "firebase": "^11.1.0",
