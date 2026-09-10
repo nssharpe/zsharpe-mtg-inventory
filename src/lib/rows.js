@@ -41,6 +41,27 @@ export function availableFinishes(cardOrRow) {
   return FINISHES.filter((f) => usable.includes(f.code))
 }
 
+/**
+ * The finish to actually use when moving a row onto a different printing.
+ *
+ * Printings don't all come in the same finishes — switching a foil row onto a
+ * nonfoil-only printing would store a finish that printing doesn't have, and
+ * `priceForFinish` would return null. A null price is excluded from every
+ * total, so the card would quietly stop counting toward the collection's value
+ * instead of failing visibly. Clamp to something the printing really has.
+ *
+ * Compare the result against what was asked for to tell the user it changed.
+ */
+export function clampFinish(cardOrRow, desired) {
+  const declared =
+    Array.isArray(cardOrRow?.finishes) && cardOrRow.finishes.length
+      ? cardOrRow.finishes
+      : []
+  const usable = declared.filter((code) => code in FINISH_PRICE_KEY)
+  const supported = usable.length ? usable : ['nonfoil']
+  return supported.includes(desired) ? desired : supported[0]
+}
+
 /** Just the USD prices, as numbers, so a stored row can reprice itself. */
 function usdPricesOf(card) {
   return {

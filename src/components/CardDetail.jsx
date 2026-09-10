@@ -12,14 +12,19 @@ import {
 import { reclassifyRow, removeRow, updateRow } from '../lib/inventory.js'
 import { availableFinishes, repriceRow } from '../lib/rows.js'
 import ReviewPrinting from './ReviewPrinting.jsx'
+import ChangePrinting from './ChangePrinting.jsx'
+import DuplicateEntry from './DuplicateEntry.jsx'
 
-export default function CardDetail({ row, onClose }) {
+export default function CardDetail({ row, onClose, initialMode = 'view' }) {
   const [quantity, setQuantity] = useState(row.quantity)
   const [condition, setCondition] = useState(row.condition)
   const [finish, setFinish] = useState(row.finish)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState(null)
   const [confirmDelete, setConfirmDelete] = useState(false)
+  // 'view' | 'printing' | 'duplicate' — one panel at a time keeps the dialog
+  // from becoming three forms stacked on top of each other.
+  const [mode, setMode] = useState(initialMode)
 
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && onClose()
@@ -110,6 +115,7 @@ export default function CardDetail({ row, onClose }) {
               </button>
             </div>
 
+            {mode !== 'duplicate' && (
             <div className="mt-5 grid grid-cols-2 gap-3">
               <Field label="Quantity">
                 <input
@@ -150,13 +156,28 @@ export default function CardDetail({ row, onClose }) {
                 </div>
               </Field>
             </div>
+            )}
 
-            {row.needsReview && (
+            {row.needsReview && mode === 'view' && (
               <div className="mt-5">
                 <ReviewPrinting row={row} onDone={onClose} />
               </div>
             )}
 
+            {mode === 'printing' && (
+              <ChangePrinting
+                row={row}
+                onDone={onClose}
+                onCancel={() => setMode('view')}
+              />
+            )}
+
+            {mode === 'duplicate' && (
+              <DuplicateEntry row={row} onCancel={() => setMode('view')} />
+            )}
+
+            {mode !== 'duplicate' && (
+            <>
             <dl className="mt-5 space-y-1.5 rounded-lg bg-surface-900 p-4 text-sm">
               <Line label="Price each" value={formatUsd(preview.priceUsd)} />
               <Line label="Market total" value={formatUsd(lineMarketValue(preview))} />
@@ -181,6 +202,12 @@ export default function CardDetail({ row, onClose }) {
               </p>
             )}
 
+            {dirty && mode === 'view' && (
+              <p className="mt-3 text-xs text-ink-muted">
+                Save your changes to enable editing the printing.
+              </p>
+            )}
+
             {error && (
               <p role="alert" className="mt-3 rounded-lg bg-red-950 border border-red-800
                                           px-3 py-2 text-sm text-red-200">
@@ -196,6 +223,28 @@ export default function CardDetail({ row, onClose }) {
                 className="btn-primary"
               >
                 {busy ? 'Saving…' : 'Save changes'}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setMode(mode === 'printing' ? 'view' : 'printing')}
+                // Changing the printing rebuilds the row from the new card, so
+                // unsaved quantity/condition edits would be dropped. Make the
+                // user land those first rather than silently losing them.
+                disabled={busy || dirty}
+                title={dirty ? 'Save or undo your changes first' : undefined}
+                className="btn-secondary"
+              >
+                {mode === 'printing' ? 'Close printings' : 'Edit printing'}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setMode(mode === 'duplicate' ? 'view' : 'duplicate')}
+                disabled={busy}
+                className="btn-secondary"
+              >
+                {mode === 'duplicate' ? 'Close copy' : 'Duplicate this entry'}
               </button>
 
               <a
@@ -238,6 +287,8 @@ export default function CardDetail({ row, onClose }) {
                 )}
               </div>
             </div>
+            </>
+            )}
           </div>
         </div>
       </div>

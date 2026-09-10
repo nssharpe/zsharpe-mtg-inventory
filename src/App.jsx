@@ -21,6 +21,8 @@ export default function App() {
   const [rows, setRows] = useState([])
   const [loadError, setLoadError] = useState(null)
   const [tab, setTab] = useState('inventory')
+  // { row, mode } — mode lets the inventory's "+ copy" open the dialog
+  // straight into the duplicate panel.
   const [openRow, setOpenRow] = useState(null)
   const [refresh, setRefresh] = useState({ busy: false, done: 0, total: 0 })
   const [lastRefresh, setLastRefresh] = useState(null)
@@ -226,7 +228,11 @@ export default function App() {
         )}
 
         {tab === 'inventory' ? (
-          <Inventory rows={rows} onOpen={setOpenRow} />
+          <Inventory
+            rows={rows}
+            onOpen={(row) => setOpenRow({ row, mode: 'view' })}
+            onDuplicate={(row) => setOpenRow({ row, mode: 'duplicate' })}
+          />
         ) : (
           <AddCard />
         )}
@@ -235,7 +241,8 @@ export default function App() {
       {openRow && (
         <CardDetail
           // Re-read from the live rows so the panel reflects other-tab edits.
-          row={rows.find((r) => r.id === openRow.id) ?? openRow}
+          row={rows.find((r) => r.id === openRow.row.id) ?? openRow.row}
+          initialMode={openRow.mode}
           onClose={() => setOpenRow(null)}
         />
       )}

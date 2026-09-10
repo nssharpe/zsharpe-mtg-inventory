@@ -11,7 +11,7 @@ import TotalsHeader from './TotalsHeader.jsx'
 import Filters from './Filters.jsx'
 import { CardGrid, CardTable } from './CardViews.jsx'
 
-export default function Inventory({ rows, onOpen }) {
+export default function Inventory({ rows, onOpen, onDuplicate }) {
   const [filters, setFilters] = useState(EMPTY_FILTERS)
   const [sort, setSort] = useState('value-desc')
   const [view, setView] = useState('grid')
@@ -94,9 +94,9 @@ export default function Inventory({ rows, onOpen }) {
           <p className="text-ink-bright">Nothing matches those filters.</p>
         </div>
       ) : view === 'grid' ? (
-        <CardGrid rows={visible} onOpen={onOpen} />
+        <CardGrid rows={visible} onOpen={onOpen} onDuplicate={onDuplicate} />
       ) : (
-        <CardTable rows={visible} onOpen={onOpen} />
+        <CardTable rows={visible} onOpen={onOpen} onDuplicate={onDuplicate} />
       )}
     </div>
   )

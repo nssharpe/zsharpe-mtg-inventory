@@ -19,7 +19,7 @@ import {
 
 import { db } from './firebase.js'
 import { priceForFinish } from './pricing.js'
-import { repriceRow, rowFromCard, rowId } from './rows.js'
+import { clampFinish, repriceRow, rowFromCard, rowId } from './rows.js'
 import { fetchCardsByIds } from './scryfall.js'
 
 const COLLECTION = 'collection'
@@ -203,8 +203,10 @@ export async function writeRefreshedPrices(rows, found) {
  * across; a row that already exists at the target absorbs the quantity.
  */
 export async function confirmPrinting(row, card, { finish, condition } = {}) {
+  // The new printing may not come in the finish the row currently has.
+  const safeFinish = clampFinish(card, finish ?? row.finish)
   const rebuilt = rowFromCard(card, {
-    finish: finish ?? row.finish,
+    finish: safeFinish,
     condition: condition ?? row.condition,
     quantity: row.quantity,
     language: row.language ?? 'en',
@@ -237,7 +239,66 @@ export async function confirmPrinting(row, card, { finish, condition } = {}) {
 
   if (newId !== row.id) batch.delete(doc(db, COLLECTION, row.id))
   await batch.commit()
-  return newId
+  return {
+    id: newId,
+    merged: existing.exists() && newId !== row.id,
+    finish: safeFinish,
+  }
+}
+
+/**
+ * Add a second entry for a card already in the collection, in a different
+ * printing, finish or condition.
+ *
+ * Deliberately not confirmPrinting: that one *moves* a row and deletes the
+ * source document. This leaves the original alone.
+ *
+ * A copy that lands on a combination already owned merges into it, because
+ * that combination is the row's identity — so this reports whether it created
+ * a new entry or added to an existing one, and the caller says so. Otherwise a
+ * merge looks like the button did nothing.
+ */
+export async function duplicateRow(row, card, { finish, condition, quantity = 1 } = {}) {
+  const safeFinish = clampFinish(card, finish ?? row.finish)
+  const built = rowFromCard(card, {
+    finish: safeFinish,
+    condition: condition ?? row.condition,
+    quantity,
+    language: row.language ?? 'en',
+    notes: '',
+  })
+
+  const newId = rowId(built)
+  const targetRef = doc(db, COLLECTION, newId)
+  const existing = await getDoc(targetRef)
+
+  if (existing.exists()) {
+    await updateDoc(targetRef, {
+      quantity: increment(built.quantity),
+      updatedAt: serverTimestamp(),
+    })
+    return {
+      id: newId,
+      merged: true,
+      finish: safeFinish,
+      quantity: (existing.data()?.quantity ?? 0) + built.quantity,
+    }
+  }
+
+  await setDoc(targetRef, {
+    ...built,
+    // A copy is its own entry: it didn't come from the sheet, its printing was
+    // chosen deliberately, and "date added" should be now rather than whenever
+    // the row it was copied from was created.
+    needsReview: false,
+    reviewPriority: 0,
+    sourceLabel: '',
+    addedAt: serverTimestamp(),
+    priceUpdatedAt: serverTimestamp(),
+    updatedAt: serverTimestamp(),
+  })
+
+  return { id: newId, merged: false, finish: safeFinish, quantity: built.quantity }
 }
 
 /** Accept the guessed printing as-is. */

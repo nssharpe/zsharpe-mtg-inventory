@@ -126,12 +126,22 @@ function Preview() {
       <NoteHarness />
 
       {tab === 'inventory' ? (
-        <Inventory rows={ROWS} onOpen={setOpen} />
+        <Inventory
+          rows={ROWS}
+          onOpen={(row) => setOpen({ row, mode: 'view' })}
+          onDuplicate={(row) => setOpen({ row, mode: 'duplicate' })}
+        />
       ) : (
         <AddCard />
       )}
 
-      {open && <CardDetail row={open} onClose={() => setOpen(null)} />}
+      {open && (
+        <CardDetail
+          row={open.row}
+          initialMode={open.mode}
+          onClose={() => setOpen(null)}
+        />
+      )}
     </div>
   )
 }

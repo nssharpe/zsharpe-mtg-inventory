@@ -22,18 +22,21 @@ function RarityBadge({ rarity }) {
 }
 
 /** Visual browsing view. */
-export function CardGrid({ rows, onOpen }) {
+export function CardGrid({ rows, onOpen, onDuplicate }) {
   return (
     <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
       {rows.map((row) => {
         const value = lineAdjustedValue(row)
         return (
-          <li key={row.id}>
+          <li
+            key={row.id}
+            className="overflow-hidden rounded-xl border border-surface-600
+                       transition focus-within:border-accent hover:border-accent"
+          >
             <button
               type="button"
               onClick={() => onOpen(row)}
-              className="group w-full overflow-hidden rounded-xl border border-surface-600
-                         text-left transition hover:border-accent"
+              className="block w-full text-left"
             >
               <div className="relative">
                 {row.imageNormal ? (
@@ -65,16 +68,33 @@ export function CardGrid({ rows, onOpen }) {
                   </span>
                 )}
               </div>
-              <div className="bg-surface-800 p-2">
+              <div className="bg-surface-800 px-2 pb-1 pt-2">
                 <p className="truncate text-xs font-semibold text-ink-bright">{row.name}</p>
                 <p className="mt-0.5 truncate text-[11px] text-ink-muted">
                   {row.setCode?.toUpperCase()} · {row.condition}
                 </p>
-                <p className="mt-1 text-sm font-bold text-accent tabular-nums">
-                  {formatUsd(value)}
-                </p>
               </div>
             </button>
+
+            {/* Outside the tile button: nesting buttons is invalid, and this
+                stays visible rather than appearing on hover so it works on a
+                touch screen. */}
+            <div className="flex items-center justify-between gap-1 bg-surface-800 px-2 pb-2">
+              <span className="text-sm font-bold tabular-nums text-accent">
+                {formatUsd(value)}
+              </span>
+              <button
+                type="button"
+                onClick={() => onDuplicate(row)}
+                aria-label={`Add another copy of ${row.name}`}
+                title="Add another copy in a different printing or grade"
+                className="rounded px-1.5 py-0.5 text-[11px] font-semibold text-ink-muted
+                           transition hover:bg-surface-600 hover:text-ink-bright
+                           focus:bg-surface-600 focus:text-ink-bright"
+              >
+                + copy
+              </button>
+            </div>
           </li>
         )
       })}
@@ -83,7 +103,7 @@ export function CardGrid({ rows, onOpen }) {
 }
 
 /** Dense view for working through the collection by value. */
-export function CardTable({ rows, onOpen }) {
+export function CardTable({ rows, onOpen, onDuplicate }) {
   return (
     <div className="card-surface overflow-x-auto">
       <table className="w-full min-w-[52rem] text-sm">
@@ -99,6 +119,7 @@ export function CardTable({ rows, onOpen }) {
             <Th className="text-right">Each</Th>
             <Th className="text-right">Market</Th>
             <Th className="text-right">Adjusted</Th>
+            <Th className="w-20" />
           </tr>
         </thead>
         <tbody>
@@ -154,6 +175,23 @@ export function CardTable({ rows, onOpen }) {
               </td>
               <td className="p-2 text-right font-semibold text-accent tabular-nums">
                 {formatUsd(lineAdjustedValue(row))}
+              </td>
+              <td className="p-2 text-right">
+                <button
+                  type="button"
+                  // The row itself opens the card, so this must not bubble.
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    onDuplicate(row)
+                  }}
+                  aria-label={`Add another copy of ${row.name}`}
+                  title="Add another copy in a different printing or grade"
+                  className="rounded px-2 py-1 text-xs font-semibold text-ink-muted
+                             transition hover:bg-surface-600 hover:text-ink-bright
+                             focus:bg-surface-600 focus:text-ink-bright"
+                >
+                  + copy
+                </button>
               </td>
             </tr>
           ))}

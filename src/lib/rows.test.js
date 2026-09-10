@@ -1,5 +1,12 @@
 import { describe, it, expect } from 'vitest'
-import { rowId, rowFromCard, availableFinishes, repriceRow, chunk } from './rows.js'
+import {
+  rowId,
+  rowFromCard,
+  availableFinishes,
+  repriceRow,
+  clampFinish,
+  chunk,
+} from './rows.js'
 
 const bolt = {
   id: '7673784e-db4b-43a1-8d55-1bb9fc1e284f',
@@ -231,5 +238,45 @@ describe('availableFinishes on an inventory row', () => {
     // Otherwise a foil row with no stored finishes would show only "Normal".
     const legacy = { finish: 'etched' }
     expect(availableFinishes(legacy).map((f) => f.code)).toContain('etched')
+  })
+})
+
+describe('clampFinish', () => {
+  it('keeps the finish when the printing has it', () => {
+    expect(clampFinish({ finishes: ['nonfoil', 'foil'] }, 'foil')).toBe('foil')
+  })
+
+  it('falls back when the printing does not come in that finish', () => {
+    // The bug this prevents: storing 'foil' here makes priceUsd null, and a
+    // null price silently drops out of the collection total.
+    expect(clampFinish({ finishes: ['nonfoil'] }, 'foil')).toBe('nonfoil')
+  })
+
+  it('falls back to the first supported finish, not always nonfoil', () => {
+    expect(clampFinish({ finishes: ['foil', 'etched'] }, 'nonfoil')).toBe('foil')
+  })
+
+  it('handles etched-only printings', () => {
+    expect(clampFinish({ finishes: ['etched'] }, 'foil')).toBe('etched')
+  })
+
+  it('ignores finishes we have no price key for', () => {
+    expect(clampFinish({ finishes: ['glossy', 'foil'] }, 'nonfoil')).toBe('foil')
+  })
+
+  it('assumes nonfoil when the printing declares nothing', () => {
+    expect(clampFinish({}, 'foil')).toBe('nonfoil')
+    expect(clampFinish({ finishes: [] }, 'foil')).toBe('nonfoil')
+    expect(clampFinish(null, 'foil')).toBe('nonfoil')
+  })
+
+  it('produces a priceable row when combined with rowFromCard', () => {
+    const card = {
+      id: 'x', finishes: ['nonfoil'],
+      prices: { usd: '3.00', usd_foil: null, usd_etched: null },
+    }
+    const finish = clampFinish(card, 'foil')
+    const row = rowFromCard(card, { finish, condition: 'NM', quantity: 1 })
+    expect(row.priceUsd).toBe(3)
   })
 })
